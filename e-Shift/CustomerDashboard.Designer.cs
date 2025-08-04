@@ -36,13 +36,12 @@
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.lblProfileStatus = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpJobSummary = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpJobSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,32 +114,23 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(261, 38);
+            this.lblWelcome.Location = new System.Drawing.Point(261, 54);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(44, 16);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "label1";
             // 
-            // lblProfileStatus
+            // grpJobSummary
             // 
-            this.lblProfileStatus.AutoSize = true;
-            this.lblProfileStatus.Location = new System.Drawing.Point(261, 101);
-            this.lblProfileStatus.Name = "lblProfileStatus";
-            this.lblProfileStatus.Size = new System.Drawing.Size(44, 16);
-            this.lblProfileStatus.TabIndex = 2;
-            this.lblProfileStatus.Text = "label1";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(264, 216);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(647, 260);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Today\'s Job Summary";
+            this.grpJobSummary.Controls.Add(this.label3);
+            this.grpJobSummary.Controls.Add(this.label2);
+            this.grpJobSummary.Controls.Add(this.label1);
+            this.grpJobSummary.Location = new System.Drawing.Point(264, 216);
+            this.grpJobSummary.Name = "grpJobSummary";
+            this.grpJobSummary.Size = new System.Drawing.Size(647, 260);
+            this.grpJobSummary.TabIndex = 3;
+            this.grpJobSummary.TabStop = false;
+            this.grpJobSummary.Text = "Today\'s Job Summary";
             // 
             // label1
             // 
@@ -175,15 +165,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 653);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblProfileStatus);
+            this.Controls.Add(this.grpJobSummary);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.panel1);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
+            this.Load += new System.EventHandler(this.CustomerDashboard_Load);
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpJobSummary.ResumeLayout(false);
+            this.grpJobSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,8 +189,7 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label lblProfileStatus;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpJobSummary;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

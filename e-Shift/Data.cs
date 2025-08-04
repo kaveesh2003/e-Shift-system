@@ -50,5 +50,13 @@ namespace e_Shift
                 }
             }
         }
+
+        //LOGGING AND LOADING THE DASHBOARD
+        public static bool IsCustomerProfileComplete(int UserID)
+        {
+            // Connect to DB here and check profile fields
+            // Placeholder logic (replace with actual DB check)
+            return false; // For now, assume incomplete
+        }
     }
 }

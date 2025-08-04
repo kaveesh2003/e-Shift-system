@@ -64,7 +64,9 @@ namespace e_Shift
 
             if (dt.Rows.Count > 0)
             {
-                this.Role = dt.Rows[0]["Role"].ToString(); // Set role from database
+                //this.UserID = Convert.ToInt32(dt.Rows[0]["UserID"]); // fetchedUserIdFromDB
+                //this.Username = dt.Rows[0]["Username"].ToString();   // fetchedNameFromDB
+                this.Role = dt.Rows[0]["Role"].ToString();   // Set role from database
                 return true;
             }
 

@@ -43,7 +43,7 @@ namespace e_Shift
                 }
                 else if (user.Role == "Customer")
                 {
-                    CustomerDashboard customerForm = new CustomerDashboard();
+                    CustomerDashboard customerForm = new CustomerDashboard(user.UserID, user.Username);
                     customerForm.Show();
                 }
 
