@@ -28,37 +28,181 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnReqShift = new System.Windows.Forms.Button();
+            this.btnMyJobs = new System.Windows.Forms.Button();
+            this.btnTrackJob = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblProfileStatus = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // panel1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(1157, 664);
-            this.splitContainer1.SplitterDistance = 258;
-            this.splitContainer1.TabIndex = 0;
+            this.panel1.Controls.Add(this.btnLogout);
+            this.panel1.Controls.Add(this.btnProfile);
+            this.panel1.Controls.Add(this.btnTrackJob);
+            this.panel1.Controls.Add(this.btnMyJobs);
+            this.panel1.Controls.Add(this.btnReqShift);
+            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Location = new System.Drawing.Point(2, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(225, 639);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(10, 159);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(199, 38);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            // 
+            // btnReqShift
+            // 
+            this.btnReqShift.Location = new System.Drawing.Point(13, 213);
+            this.btnReqShift.Name = "btnReqShift";
+            this.btnReqShift.Size = new System.Drawing.Size(199, 38);
+            this.btnReqShift.TabIndex = 1;
+            this.btnReqShift.Text = "Request new Shift";
+            this.btnReqShift.UseVisualStyleBackColor = true;
+            // 
+            // btnMyJobs
+            // 
+            this.btnMyJobs.Location = new System.Drawing.Point(13, 267);
+            this.btnMyJobs.Name = "btnMyJobs";
+            this.btnMyJobs.Size = new System.Drawing.Size(199, 38);
+            this.btnMyJobs.TabIndex = 2;
+            this.btnMyJobs.Text = "My Jobs";
+            this.btnMyJobs.UseVisualStyleBackColor = true;
+            // 
+            // btnTrackJob
+            // 
+            this.btnTrackJob.Location = new System.Drawing.Point(13, 324);
+            this.btnTrackJob.Name = "btnTrackJob";
+            this.btnTrackJob.Size = new System.Drawing.Size(199, 38);
+            this.btnTrackJob.TabIndex = 3;
+            this.btnTrackJob.Text = "Track Job";
+            this.btnTrackJob.UseVisualStyleBackColor = true;
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(13, 381);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(199, 38);
+            this.btnProfile.TabIndex = 4;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(13, 435);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(199, 38);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Location = new System.Drawing.Point(261, 38);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(44, 16);
+            this.lblWelcome.TabIndex = 1;
+            this.lblWelcome.Text = "label1";
+            // 
+            // lblProfileStatus
+            // 
+            this.lblProfileStatus.AutoSize = true;
+            this.lblProfileStatus.Location = new System.Drawing.Point(261, 101);
+            this.lblProfileStatus.Name = "lblProfileStatus";
+            this.lblProfileStatus.Size = new System.Drawing.Size(44, 16);
+            this.lblProfileStatus.TabIndex = 2;
+            this.lblProfileStatus.Text = "label1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(264, 216);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(647, 260);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Today\'s Job Summary";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 187);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "label3";
             // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1157, 664);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(1062, 653);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblProfileStatus);
+            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.panel1);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Button btnTrackJob;
+        private System.Windows.Forms.Button btnMyJobs;
+        private System.Windows.Forms.Button btnReqShift;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblProfileStatus;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
