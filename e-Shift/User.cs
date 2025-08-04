@@ -50,5 +50,25 @@ namespace e_Shift
                 return false;
             }
         }
+
+        //Login Method
+        public bool Login()
+        {
+            string query = "SELECT Role FROM [Users] WHERE Username = @Username AND Password = @Password";
+            SqlParameter[] parameters = {
+                new SqlParameter("@Username", this.Username),
+                new SqlParameter("@Password", this.Password)
+            };
+
+            DataTable dt = Data.GetDataTable(query, parameters);
+
+            if (dt.Rows.Count > 0)
+            {
+                this.Role = dt.Rows[0]["Role"].ToString(); // Set role from database
+                return true;
+            }
+
+            return false;
+        }
     }
 }
