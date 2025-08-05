@@ -30,5 +30,15 @@ namespace e_Shift
             // Show job summary now since profile is guaranteed to be complete
             grpJobSummary.Visible = true;
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            CustomerProfile profileForm = new CustomerProfile(_currentCustomer.UserID);
+            profileForm.ShowDialog();
+
+            // Optionally reload updated data after profile changes
+            _currentCustomer.LoadCustomerDetails();
+            lblWelcome.Text = $"Welcome, {_currentCustomer.FullName}";
+        }
     }
 }

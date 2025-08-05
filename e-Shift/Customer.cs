@@ -91,6 +91,33 @@ namespace e_Shift
             }
         }
 
+        //Update Customer details
+        public bool UpdateCustomerDetails()
+        {
+            using (SqlConnection con = new SqlConnection(Data.cs))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"UPDATE Customers 
+                                          SET FullName = @FullName, NIC = @NIC, Email = @Email, 
+                                              Mobile = @Mobile, Address = @Address, 
+                                              City = @City, Age = @Age 
+                                          WHERE UserID = @UserID", con);
+
+                cmd.Parameters.AddWithValue("@FullName", this.FullName);
+                cmd.Parameters.AddWithValue("@NIC", this.NIC);
+                cmd.Parameters.AddWithValue("@Email", this.Email);
+                cmd.Parameters.AddWithValue("@Mobile", this.Mobile);
+                cmd.Parameters.AddWithValue("@Address", this.Address);
+                cmd.Parameters.AddWithValue("@City", this.City);
+                cmd.Parameters.AddWithValue("@Age", this.Age);
+                cmd.Parameters.AddWithValue("@UserID", this.UserID);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+
+
     }
 
     public interface IDatabase

@@ -13,32 +13,34 @@ namespace e_Shift
     public partial class CustomerProfile : Form
     {
         private int _userId;
+        private Customer _customer;
+
         public CustomerProfile(int userId)
         {
             InitializeComponent();
             _userId = userId;
+            LoadCustomerData();
         }
 
         private void CustomerProfile_Load(object sender, EventArgs e)
         {
-
+            LoadDataToTextBoxes();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (DataValid())
             {
-                Customer cust = new Customer();
-                cust.UserID = _userId;
-                cust.FullName = txtFullName.Text;
-                cust.NIC = txtNic.Text;
-                cust.Email = txtEmail.Text;
-                cust.Mobile = txtMobile.Text;
-                cust.Address = txtAddress.Text;
-                cust.City = txtCity.Text;
-                cust.Age = int.Parse(txtAge.Text);
+                _customer.UserID = _userId;
+                _customer.FullName = txtFullName.Text;
+                _customer.NIC = txtNic.Text;
+                _customer.Email = txtEmail.Text;
+                _customer.Mobile = txtMobile.Text;
+                _customer.Address = txtAddress.Text;
+                _customer.City = txtCity.Text;
+                _customer.Age = int.Parse(txtAge.Text);
 
-                cust.SaveCustomer(cust); // Save the customer to the database
+                _customer.SaveCustomer(_customer); // Save the customer to the database
                 MessageBox.Show("Profile saved successfully!");
 
                 //redirect to dashboard here
@@ -70,5 +72,70 @@ namespace e_Shift
 
             return true;
         }
+
+        //load customer details in their profile form
+        private void LoadCustomerData()
+        {
+            // Create a Customer object and load data
+            _customer = new Customer();
+            _customer.UserID = _userId;
+            _customer.LoadCustomerDetails();
+
+            // Fill textboxes with loaded data
+            txtFullName.Text = _customer.FullName;
+            txtNic.Text = _customer.NIC;
+            txtEmail.Text = _customer.Email;
+            txtMobile.Text = _customer.Mobile;
+            txtAddress.Text = _customer.Address;
+            txtCity.Text = _customer.City;
+            txtAge.Text = _customer.Age.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _customer.FullName = txtFullName.Text;
+            _customer.NIC = txtNic.Text;
+            _customer.Email = txtEmail.Text;
+            _customer.Mobile = txtMobile.Text;
+            _customer.Address = txtAddress.Text;
+            _customer.City = txtCity.Text;
+
+            if (int.TryParse(txtAge.Text, out int age))
+            {
+                _customer.Age = age;
+
+                bool success = _customer.UpdateCustomerDetails();
+
+                if (success)
+                {
+                    MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload updated details into the textboxes
+                    _customer.LoadCustomerDetails();
+                    LoadDataToTextBoxes();  // Custom method to refresh textboxes
+                }
+                else
+                {
+                    MessageBox.Show("Update failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid age.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void LoadDataToTextBoxes()
+        {
+            txtFullName.Text = _customer.FullName;
+            txtNic.Text = _customer.NIC;
+            txtEmail.Text = _customer.Email;
+            txtMobile.Text = _customer.Mobile;
+            txtAddress.Text = _customer.Address;
+            txtCity.Text = _customer.City;
+            txtAge.Text = _customer.Age.ToString();
+        }
+
     }
+
 }

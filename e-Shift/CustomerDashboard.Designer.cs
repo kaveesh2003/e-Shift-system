@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnReqShift = new System.Windows.Forms.Button();
-            this.btnMyJobs = new System.Windows.Forms.Button();
-            this.btnTrackJob = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.btnTrackJob = new System.Windows.Forms.Button();
+            this.btnMyJobs = new System.Windows.Forms.Button();
+            this.btnReqShift = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.grpJobSummary = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grpJobSummary.SuspendLayout();
             this.SuspendLayout();
@@ -57,32 +57,24 @@
             this.panel1.Size = new System.Drawing.Size(225, 639);
             this.panel1.TabIndex = 0;
             // 
-            // btnHome
+            // btnLogout
             // 
-            this.btnHome.Location = new System.Drawing.Point(10, 159);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(199, 38);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnLogout.Location = new System.Drawing.Point(13, 435);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(199, 38);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // btnReqShift
+            // btnProfile
             // 
-            this.btnReqShift.Location = new System.Drawing.Point(13, 213);
-            this.btnReqShift.Name = "btnReqShift";
-            this.btnReqShift.Size = new System.Drawing.Size(199, 38);
-            this.btnReqShift.TabIndex = 1;
-            this.btnReqShift.Text = "Request new Shift";
-            this.btnReqShift.UseVisualStyleBackColor = true;
-            // 
-            // btnMyJobs
-            // 
-            this.btnMyJobs.Location = new System.Drawing.Point(13, 267);
-            this.btnMyJobs.Name = "btnMyJobs";
-            this.btnMyJobs.Size = new System.Drawing.Size(199, 38);
-            this.btnMyJobs.TabIndex = 2;
-            this.btnMyJobs.Text = "My Jobs";
-            this.btnMyJobs.UseVisualStyleBackColor = true;
+            this.btnProfile.Location = new System.Drawing.Point(13, 381);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(199, 38);
+            this.btnProfile.TabIndex = 4;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnTrackJob
             // 
@@ -93,23 +85,32 @@
             this.btnTrackJob.Text = "Track Job";
             this.btnTrackJob.UseVisualStyleBackColor = true;
             // 
-            // btnProfile
+            // btnMyJobs
             // 
-            this.btnProfile.Location = new System.Drawing.Point(13, 381);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(199, 38);
-            this.btnProfile.TabIndex = 4;
-            this.btnProfile.Text = "Profile";
-            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnMyJobs.Location = new System.Drawing.Point(13, 267);
+            this.btnMyJobs.Name = "btnMyJobs";
+            this.btnMyJobs.Size = new System.Drawing.Size(199, 38);
+            this.btnMyJobs.TabIndex = 2;
+            this.btnMyJobs.Text = "My Jobs";
+            this.btnMyJobs.UseVisualStyleBackColor = true;
             // 
-            // btnLogout
+            // btnReqShift
             // 
-            this.btnLogout.Location = new System.Drawing.Point(13, 435);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(199, 38);
-            this.btnLogout.TabIndex = 5;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnReqShift.Location = new System.Drawing.Point(13, 213);
+            this.btnReqShift.Name = "btnReqShift";
+            this.btnReqShift.Size = new System.Drawing.Size(199, 38);
+            this.btnReqShift.TabIndex = 1;
+            this.btnReqShift.Text = "Request new Shift";
+            this.btnReqShift.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(10, 159);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(199, 38);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
             // lblWelcome
             // 
@@ -132,14 +133,14 @@
             this.grpJobSummary.TabStop = false;
             this.grpJobSummary.Text = "Today\'s Job Summary";
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 187);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "label3";
             // 
             // label2
             // 
@@ -150,14 +151,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 187);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // CustomerDashboard
             // 
