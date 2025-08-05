@@ -24,47 +24,11 @@ namespace e_Shift
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = $"Welcome, {_currentCustomer.Name}";
-            HandleProfileCheck();
-        }
+            _currentCustomer.LoadCustomerDetails();
+            lblWelcome.Text = $"Welcome, {_currentCustomer.FullName}";
 
-        private void HandleProfileCheck()
-        {
-            if (!_currentCustomer.IsProfileComplete())
-            {
-                grpJobSummary.Visible = false;
-
-                DialogResult result = MessageBox.Show(
-                    "⚠ Your profile is incomplete. Please complete it to access full system features.",
-                    "Complete Profile Required",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                if (result == DialogResult.OK)
-                {
-                    RedirectToProfileForm();
-                }
-            }
-            else
-            {
-                grpJobSummary.Visible = true;
-            }
-        }
-        private void RedirectToProfileForm()
-        {
-            using (CustomerProfile profileForm = new CustomerProfile(_currentCustomer.Id))
-            {
-                this.Hide();
-                profileForm.ShowDialog();
-                this.Show();
-
-                // Recheck after profile update
-                if (_currentCustomer.IsProfileComplete())
-                {
-                    grpJobSummary.Visible = true;
-                }
-            }
+            // Show job summary now since profile is guaranteed to be complete
+            grpJobSummary.Visible = true;
         }
     }
 }

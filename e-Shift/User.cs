@@ -54,7 +54,7 @@ namespace e_Shift
         //Login Method
         public bool Login()
         {
-            string query = "SELECT Role FROM [Users] WHERE Username = @Username AND Password = @Password";
+            string query = "SELECT UserID, Role FROM [Users] WHERE Username = @Username AND Password = @Password";
             SqlParameter[] parameters = {
                 new SqlParameter("@Username", this.Username),
                 new SqlParameter("@Password", this.Password)
@@ -64,7 +64,7 @@ namespace e_Shift
 
             if (dt.Rows.Count > 0)
             {
-                //this.UserID = Convert.ToInt32(dt.Rows[0]["UserID"]); // fetchedUserIdFromDB
+                this.UserID = Convert.ToInt32(dt.Rows[0]["UserID"]);
                 //this.Username = dt.Rows[0]["Username"].ToString();   // fetchedNameFromDB
                 this.Role = dt.Rows[0]["Role"].ToString();   // Set role from database
                 return true;

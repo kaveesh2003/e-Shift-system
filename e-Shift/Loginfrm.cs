@@ -43,13 +43,24 @@ namespace e_Shift
                 }
                 else if (user.Role == "Customer")
                 {
-                    CustomerDashboard customerForm = new CustomerDashboard(user.UserID, user.Username);
-                    customerForm.Show();
+                    // Create Customer object
+                    Customer loggedInCustomer = new Customer(user.UserID, user.Username);
+
+                    // Check if profile is complete
+                    if (loggedInCustomer.IsProfileComplete())
+                    {
+                        CustomerDashboard dashboard = new CustomerDashboard(user.UserID, user.Username);
+                        dashboard.Show();
+                    }
+                    else
+                    {
+                        TempDasboard tempDashboard = new TempDasboard(loggedInCustomer);
+                        tempDashboard.Show();
+                    }
                 }
 
                 this.Hide(); // Hide login form
             }
-
             else
             {
                 MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);

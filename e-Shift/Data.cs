@@ -15,7 +15,7 @@ namespace e_Shift
         public static string cs = ConfigurationManager.ConnectionStrings["dbcon"].ToString();
 
 
-        //SIGN UP AND LOGIN
+        //SIGN UP AND LOGIN ---------------------------------------------------------------------------
 
         //Execute query for signup and login
         public static void ExecuteQuery(string sql, SqlParameter[] parameters)
@@ -51,12 +51,48 @@ namespace e_Shift
             }
         }
 
-        //LOGGING AND LOADING THE DASHBOARD
-        public static bool IsCustomerProfileComplete(int UserID)
+        //LOGGING AND LOADING THE DASHBOARD ------------------------------------------------------------
+        public static bool IsCustomerProfileComplete(int userId)
         {
-            // Connect to DB here and check profile fields
-            // Placeholder logic (replace with actual DB check)
-            return false; // For now, assume incomplete
+            string sql = "SELECT NIC, Email, Mobile, City FROM Customers WHERE UserID = @UserID";
+
+            using (SqlConnection con = new SqlConnection(cs))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@UserID", userId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string nic = reader["NIC"]?.ToString();
+                    string email = reader["Email"]?.ToString();
+                    string mobile = reader["Mobile"]?.ToString();
+                    string city = reader["City"]?.ToString();
+
+                    return !string.IsNullOrWhiteSpace(nic) &&
+                           !string.IsNullOrWhiteSpace(email) &&
+                           !string.IsNullOrWhiteSpace(mobile) &&
+                           !string.IsNullOrWhiteSpace(city);
+                }
+
+                return false;
+            }
+        }
+
+
+        //Customer registration process -----------------------------------------------------------------
+
+        //ExecuteQuery for customer registration
+        // Generic method to execute INSERT, UPDATE, DELETE queries
+        public static void ExecuteQuery(string sql)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
