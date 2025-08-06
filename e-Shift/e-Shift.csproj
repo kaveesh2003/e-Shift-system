@@ -80,6 +80,12 @@
     <Compile Include="Loginfrm.Designer.cs">
       <DependentUpon>Loginfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyJobs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyJobs.Designer.cs">
+      <DependentUpon>MyJobs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request Job.cs">
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Loginfrm.resx">
       <DependentUpon>Loginfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyJobs.resx">
+      <DependentUpon>MyJobs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

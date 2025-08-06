@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -42,6 +44,56 @@ namespace e_Shift
             {
                 MessageBox.Show("Error while saving job: " + ex.Message);
                 return false;
+            }
+        }
+
+        //methods for my jobs form
+
+        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["dbcon"].ToString();
+
+        public DataTable GetJobsByUser(int userID, string status = "All", DateTime? date = null)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"SELECT JobID, RequestedDate AS [RequestedDate], Status, RequestedStartLocation AS [Start_Location], RequestedDestination AS [Destination]
+                                 FROM Jobs
+                                 WHERE UserID = @UserID";
+
+                if (status != "All")
+                    query += " AND Status = @Status";
+
+                if (date != null)
+                    query += " AND CAST(RequestedDate AS DATE) = @RequestedDate";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    if (status != "All")
+                        cmd.Parameters.AddWithValue("@Status", status);
+                    if (date != null)
+                        cmd.Parameters.AddWithValue("@RequestedDate", date.Value.Date);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        public bool CancelJob(int jobID)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Jobs SET Status = 'Cancelled' WHERE JobID = @JobID AND Status = 'Pending'";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@JobID", jobID);
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
+                }
             }
         }
     }

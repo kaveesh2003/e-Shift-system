@@ -46,5 +46,17 @@ namespace e_Shift
             RequestJob requestJobForm = new RequestJob(_currentCustomer.UserID);
             requestJobForm.ShowDialog();
         }
+
+        private void btnMyJobs_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the MyJobs form
+            MyJobs myJobsForm = new MyJobs(_currentCustomer.UserID);
+
+            // Optional: If you want to pass the logged-in user ID to MyJobs form
+            //myJobsForm.LoggedInUserId = this.LoggedInUserId;
+
+            // Show the form
+            myJobsForm.Show();
+        }
     }
 }
