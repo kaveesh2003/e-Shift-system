@@ -49,14 +49,28 @@ namespace e_Shift
 
         private void btnMyJobs_Click(object sender, EventArgs e)
         {
-            // Create an instance of the MyJobs form
             MyJobs myJobsForm = new MyJobs(_currentCustomer.UserID);
-
-            // Optional: If you want to pass the logged-in user ID to MyJobs form
-            //myJobsForm.LoggedInUserId = this.LoggedInUserId;
-
-            // Show the form
             myJobsForm.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // Show the login form again
+                Loginfrm loginForm = new Loginfrm();
+                loginForm.Show();
+
+                // Close the dashboard
+                this.Close();
+            }
         }
     }
 }
