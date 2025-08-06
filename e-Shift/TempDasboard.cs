@@ -47,5 +47,12 @@ namespace e_Shift
                 }
             }
         }
+
+        private void TempDasboard_Load(object sender, EventArgs e)
+        {
+            btnReqShift.Enabled = false;
+            btnMyJobs.Enabled = false;
+            btnTrackJob.Enabled = false;
+        }
     }
 }

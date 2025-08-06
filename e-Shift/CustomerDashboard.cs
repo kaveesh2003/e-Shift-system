@@ -40,5 +40,11 @@ namespace e_Shift
             _currentCustomer.LoadCustomerDetails();
             lblWelcome.Text = $"Welcome, {_currentCustomer.FullName}";
         }
+
+        private void btnReqShift_Click(object sender, EventArgs e)
+        {
+            RequestJob requestJobForm = new RequestJob(_currentCustomer.UserID);
+            requestJobForm.ShowDialog();
+        }
     }
 }

@@ -147,6 +147,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "TempDasboard";
             this.Text = "TempDasboard";
+            this.Load += new System.EventHandler(this.TempDasboard_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

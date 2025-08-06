@@ -102,6 +102,7 @@
             this.btnReqShift.TabIndex = 1;
             this.btnReqShift.Text = "Request new Shift";
             this.btnReqShift.UseVisualStyleBackColor = true;
+            this.btnReqShift.Click += new System.EventHandler(this.btnReqShift_Click);
             // 
             // btnHome
             // 
