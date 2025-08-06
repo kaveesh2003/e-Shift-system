@@ -74,11 +74,53 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Jobs.cs" />
+    <Compile Include="JobsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobsForm.Designer.cs">
+      <DependentUpon>JobsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loginfrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Loginfrm.Designer.cs">
       <DependentUpon>Loginfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAssistant.Designer.cs">
+      <DependentUpon>ManageAssistant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageContainer.Designer.cs">
+      <DependentUpon>ManageContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCustomer.Designer.cs">
+      <DependentUpon>ManageCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageDrivers.Designer.cs">
+      <DependentUpon>ManageDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageLorries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLorries.Designer.cs">
+      <DependentUpon>ManageLorries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProducts.Designer.cs">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="MyJobs.cs">
       <SubType>Form</SubType>
@@ -100,6 +142,12 @@
     <Compile Include="TempDasboard.Designer.cs">
       <DependentUpon>TempDasboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransportUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit.Designer.cs">
+      <DependentUpon>TransportUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
@@ -113,8 +161,29 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JobsForm.resx">
+      <DependentUpon>JobsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Loginfrm.resx">
       <DependentUpon>Loginfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAssistant.resx">
+      <DependentUpon>ManageAssistant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageContainer.resx">
+      <DependentUpon>ManageContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCustomer.resx">
+      <DependentUpon>ManageCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageDrivers.resx">
+      <DependentUpon>ManageDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLorries.resx">
+      <DependentUpon>ManageLorries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProducts.resx">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyJobs.resx">
       <DependentUpon>MyJobs.cs</DependentUpon>
@@ -133,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TempDasboard.resx">
       <DependentUpon>TempDasboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit.resx">
+      <DependentUpon>TransportUnit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

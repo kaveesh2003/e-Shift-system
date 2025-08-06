@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace e_Shift
 {
-    public partial class AdminDashboard : Form
+    public partial class ManageContainer : Form
     {
-        public AdminDashboard()
+        public ManageContainer()
         {
             InitializeComponent();
-        }
-
-        private void lblCompletedJobs_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

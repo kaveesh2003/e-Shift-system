@@ -64,11 +64,8 @@ namespace e_Shift
 
             if (result == DialogResult.Yes)
             {
-                // Show the login form again
                 Loginfrm loginForm = new Loginfrm();
                 loginForm.Show();
-
-                // Close the dashboard
                 this.Close();
             }
         }
