@@ -54,13 +54,13 @@
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvManageCustomer = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -287,15 +287,16 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Customer Details Management";
             // 
-            // dataGridView1
+            // dgvManageCustomer
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(247, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(741, 203);
-            this.dataGridView1.TabIndex = 36;
+            this.dgvManageCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManageCustomer.Location = new System.Drawing.Point(247, 100);
+            this.dgvManageCustomer.Name = "dgvManageCustomer";
+            this.dgvManageCustomer.RowHeadersWidth = 51;
+            this.dgvManageCustomer.RowTemplate.Height = 24;
+            this.dgvManageCustomer.Size = new System.Drawing.Size(741, 203);
+            this.dgvManageCustomer.TabIndex = 36;
+            this.dgvManageCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManageCustomer_CellClick);
             // 
             // txtSearch
             // 
@@ -303,6 +304,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(196, 22);
             this.txtSearch.TabIndex = 37;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnSearch
             // 
@@ -312,6 +314,7 @@
             this.btnSearch.TabIndex = 38;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnEdit
             // 
@@ -321,6 +324,7 @@
             this.btnEdit.TabIndex = 39;
             this.btnEdit.Text = "Edit Profile";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -330,6 +334,7 @@
             this.btnDelete.TabIndex = 40;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ManageCustomer
             // 
@@ -340,7 +345,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvManageCustomer);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.label8);
@@ -361,8 +366,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "ManageCustomer";
             this.Text = "ManageCustomer";
+            this.Load += new System.EventHandler(this.ManageCustomer_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,7 +402,7 @@
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvManageCustomer;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnEdit;

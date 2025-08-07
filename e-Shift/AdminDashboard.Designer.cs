@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnCustomers = new System.Windows.Forms.Button();
-            this.btnJobs = new System.Windows.Forms.Button();
-            this.btnLoads = new System.Windows.Forms.Button();
-            this.btnProducts = new System.Windows.Forms.Button();
-            this.btnTransportUnit = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
             this.btnAdminSettings = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnTransportUnit = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
+            this.btnLoads = new System.Windows.Forms.Button();
+            this.btnJobs = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,9 +45,9 @@
             this.lblCompletedJobs = new System.Windows.Forms.Label();
             this.lblTotalLoads = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvJobRequests = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobRequests)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,59 +65,14 @@
             this.panel1.Size = new System.Drawing.Size(219, 647);
             this.panel1.TabIndex = 0;
             // 
-            // btnDashboard
+            // btnAdminSettings
             // 
-            this.btnDashboard.Location = new System.Drawing.Point(19, 123);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(170, 41);
-            this.btnDashboard.TabIndex = 0;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            // 
-            // btnCustomers
-            // 
-            this.btnCustomers.Location = new System.Drawing.Point(19, 186);
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(170, 41);
-            this.btnCustomers.TabIndex = 1;
-            this.btnCustomers.Text = "Customers";
-            this.btnCustomers.UseVisualStyleBackColor = true;
-            // 
-            // btnJobs
-            // 
-            this.btnJobs.Location = new System.Drawing.Point(19, 251);
-            this.btnJobs.Name = "btnJobs";
-            this.btnJobs.Size = new System.Drawing.Size(170, 41);
-            this.btnJobs.TabIndex = 2;
-            this.btnJobs.Text = "Jobs";
-            this.btnJobs.UseVisualStyleBackColor = true;
-            // 
-            // btnLoads
-            // 
-            this.btnLoads.Location = new System.Drawing.Point(19, 318);
-            this.btnLoads.Name = "btnLoads";
-            this.btnLoads.Size = new System.Drawing.Size(170, 41);
-            this.btnLoads.TabIndex = 3;
-            this.btnLoads.Text = "Loads";
-            this.btnLoads.UseVisualStyleBackColor = true;
-            // 
-            // btnProducts
-            // 
-            this.btnProducts.Location = new System.Drawing.Point(19, 383);
-            this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(170, 41);
-            this.btnProducts.TabIndex = 4;
-            this.btnProducts.Text = "Products";
-            this.btnProducts.UseVisualStyleBackColor = true;
-            // 
-            // btnTransportUnit
-            // 
-            this.btnTransportUnit.Location = new System.Drawing.Point(19, 450);
-            this.btnTransportUnit.Name = "btnTransportUnit";
-            this.btnTransportUnit.Size = new System.Drawing.Size(170, 41);
-            this.btnTransportUnit.TabIndex = 5;
-            this.btnTransportUnit.Text = "Transport Unit";
-            this.btnTransportUnit.UseVisualStyleBackColor = true;
+            this.btnAdminSettings.Location = new System.Drawing.Point(19, 574);
+            this.btnAdminSettings.Name = "btnAdminSettings";
+            this.btnAdminSettings.Size = new System.Drawing.Size(170, 41);
+            this.btnAdminSettings.TabIndex = 7;
+            this.btnAdminSettings.Text = "Admin Settings";
+            this.btnAdminSettings.UseVisualStyleBackColor = true;
             // 
             // btnReports
             // 
@@ -128,14 +83,60 @@
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
             // 
-            // btnAdminSettings
+            // btnTransportUnit
             // 
-            this.btnAdminSettings.Location = new System.Drawing.Point(19, 574);
-            this.btnAdminSettings.Name = "btnAdminSettings";
-            this.btnAdminSettings.Size = new System.Drawing.Size(170, 41);
-            this.btnAdminSettings.TabIndex = 7;
-            this.btnAdminSettings.Text = "Admin Settings";
-            this.btnAdminSettings.UseVisualStyleBackColor = true;
+            this.btnTransportUnit.Location = new System.Drawing.Point(19, 450);
+            this.btnTransportUnit.Name = "btnTransportUnit";
+            this.btnTransportUnit.Size = new System.Drawing.Size(170, 41);
+            this.btnTransportUnit.TabIndex = 5;
+            this.btnTransportUnit.Text = "Transport Unit";
+            this.btnTransportUnit.UseVisualStyleBackColor = true;
+            // 
+            // btnProducts
+            // 
+            this.btnProducts.Location = new System.Drawing.Point(19, 383);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(170, 41);
+            this.btnProducts.TabIndex = 4;
+            this.btnProducts.Text = "Products";
+            this.btnProducts.UseVisualStyleBackColor = true;
+            // 
+            // btnLoads
+            // 
+            this.btnLoads.Location = new System.Drawing.Point(19, 318);
+            this.btnLoads.Name = "btnLoads";
+            this.btnLoads.Size = new System.Drawing.Size(170, 41);
+            this.btnLoads.TabIndex = 3;
+            this.btnLoads.Text = "Loads";
+            this.btnLoads.UseVisualStyleBackColor = true;
+            // 
+            // btnJobs
+            // 
+            this.btnJobs.Location = new System.Drawing.Point(19, 251);
+            this.btnJobs.Name = "btnJobs";
+            this.btnJobs.Size = new System.Drawing.Size(170, 41);
+            this.btnJobs.TabIndex = 2;
+            this.btnJobs.Text = "Jobs";
+            this.btnJobs.UseVisualStyleBackColor = true;
+            // 
+            // btnCustomers
+            // 
+            this.btnCustomers.Location = new System.Drawing.Point(19, 186);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(170, 41);
+            this.btnCustomers.TabIndex = 1;
+            this.btnCustomers.Text = "Customers";
+            this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Location = new System.Drawing.Point(19, 123);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(170, 41);
+            this.btnDashboard.TabIndex = 0;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
@@ -145,6 +146,7 @@
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblWelcome
             // 
@@ -210,22 +212,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Recent Job Requests";
             // 
-            // dataGridView1
+            // dgvJobRequests
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(265, 277);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(758, 285);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvJobRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJobRequests.Location = new System.Drawing.Point(265, 277);
+            this.dgvJobRequests.Name = "dgvJobRequests";
+            this.dgvJobRequests.RowHeadersWidth = 51;
+            this.dgvJobRequests.RowTemplate.Height = 24;
+            this.dgvJobRequests.Size = new System.Drawing.Size(758, 285);
+            this.dgvJobRequests.TabIndex = 9;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvJobRequests);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTotalLoads);
             this.Controls.Add(this.lblCompletedJobs);
@@ -237,8 +239,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
+            this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobRequests)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +266,6 @@
         private System.Windows.Forms.Label lblCompletedJobs;
         private System.Windows.Forms.Label lblTotalLoads;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvJobRequests;
     }
 }

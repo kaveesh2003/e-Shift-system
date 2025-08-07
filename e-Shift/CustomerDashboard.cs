@@ -69,5 +69,10 @@ namespace e_Shift
                 this.Close();
             }
         }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

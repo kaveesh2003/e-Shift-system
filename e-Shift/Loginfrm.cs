@@ -38,7 +38,7 @@ namespace e_Shift
                 // Open dashboard based on role from DB
                 if (user.Role == "Admin")
                 {
-                    AdminDashboard adminForm = new AdminDashboard();
+                    AdminDashboard adminForm = new AdminDashboard(user);
                     adminForm.Show();
                 }
                 else if (user.Role == "Customer")

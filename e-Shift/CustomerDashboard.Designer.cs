@@ -123,6 +123,7 @@
             this.lblWelcome.Size = new System.Drawing.Size(44, 16);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "label1";
+            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
             // 
             // grpJobSummary
             // 
