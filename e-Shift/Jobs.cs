@@ -96,5 +96,19 @@ namespace e_Shift
                 }
             }
         }
+
+        //admin dashboard -----------------------------------------------------------------------
+        
+        //change job status
+        public static void UpdateJobStatus(int jobId, string newStatus)
+        {
+            string sql = "UPDATE Jobs SET Status = @status WHERE JobID = @jobId";
+            SqlParameter[] parameters = {
+                new SqlParameter("@status", newStatus),
+                new SqlParameter("@jobId", jobId)
+            };
+
+            Data.ExecuteNonQuery(sql, parameters);
+        }
     }
 }

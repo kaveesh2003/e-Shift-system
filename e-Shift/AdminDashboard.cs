@@ -66,5 +66,21 @@ namespace e_Shift
             customerForm.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
             customerForm.Show();
         }
+
+        private void btnJobs_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide Admin Dashboard
+            JobsForm jobsform = new JobsForm();
+            jobsform.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            jobsform.Show();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide Admin Dashboard
+            ManageProducts manageProducts = new ManageProducts();
+            manageProducts.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            manageProducts.Show();
+        }
     }
 }

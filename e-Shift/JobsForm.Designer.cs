@@ -39,14 +39,14 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRequestedJobs = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAcceptJob = new System.Windows.Forms.Button();
             this.btnDecline = new System.Windows.Forms.Button();
             this.btnAssignTU = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedJobs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,15 +154,15 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Requested Jobs";
             // 
-            // dataGridView1
+            // dgvRequestedJobs
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(245, 141);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(789, 404);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvRequestedJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequestedJobs.Location = new System.Drawing.Point(245, 141);
+            this.dgvRequestedJobs.Name = "dgvRequestedJobs";
+            this.dgvRequestedJobs.RowHeadersWidth = 51;
+            this.dgvRequestedJobs.RowTemplate.Height = 24;
+            this.dgvRequestedJobs.Size = new System.Drawing.Size(789, 404);
+            this.dgvRequestedJobs.TabIndex = 5;
             // 
             // btnSearch
             // 
@@ -172,6 +172,7 @@
             this.btnSearch.TabIndex = 40;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -188,6 +189,7 @@
             this.btnAcceptJob.TabIndex = 41;
             this.btnAcceptJob.Text = "Accept Job";
             this.btnAcceptJob.UseVisualStyleBackColor = true;
+            this.btnAcceptJob.Click += new System.EventHandler(this.btnAcceptJob_Click);
             // 
             // btnDecline
             // 
@@ -197,6 +199,7 @@
             this.btnDecline.TabIndex = 42;
             this.btnDecline.Text = "Decline Job";
             this.btnDecline.UseVisualStyleBackColor = true;
+            this.btnDecline.Click += new System.EventHandler(this.btnDecline_Click);
             // 
             // btnAssignTU
             // 
@@ -217,14 +220,15 @@
             this.Controls.Add(this.btnAcceptJob);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvRequestedJobs);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "JobsForm";
             this.Text = "JobsForm";
+            this.Load += new System.EventHandler(this.JobsForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedJobs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,7 +247,7 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRequestedJobs;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnAcceptJob;

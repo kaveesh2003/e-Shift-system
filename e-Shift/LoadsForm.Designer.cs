@@ -242,11 +242,11 @@
             // 
             // btnAddToLoad
             // 
-            this.btnAddToLoad.Location = new System.Drawing.Point(660, 220);
+            this.btnAddToLoad.Location = new System.Drawing.Point(651, 225);
             this.btnAddToLoad.Name = "btnAddToLoad";
-            this.btnAddToLoad.Size = new System.Drawing.Size(131, 29);
+            this.btnAddToLoad.Size = new System.Drawing.Size(191, 24);
             this.btnAddToLoad.TabIndex = 13;
-            this.btnAddToLoad.Text = "Add to Load";
+            this.btnAddToLoad.Text = "Add product to Load";
             this.btnAddToLoad.UseVisualStyleBackColor = true;
             // 
             // txtTotalWeight

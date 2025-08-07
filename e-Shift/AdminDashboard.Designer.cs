@@ -100,6 +100,7 @@
             this.btnProducts.TabIndex = 4;
             this.btnProducts.Text = "Products";
             this.btnProducts.UseVisualStyleBackColor = true;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnLoads
             // 
@@ -118,6 +119,7 @@
             this.btnJobs.TabIndex = 2;
             this.btnJobs.Text = "Jobs";
             this.btnJobs.UseVisualStyleBackColor = true;
+            this.btnJobs.Click += new System.EventHandler(this.btnJobs_Click);
             // 
             // btnCustomers
             // 
