@@ -42,15 +42,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbAvailability = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDrivers = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -167,13 +167,13 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Full Name";
             // 
-            // comboBox1
+            // cmbAvailability
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(575, 240);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(313, 24);
-            this.comboBox1.TabIndex = 51;
+            this.cmbAvailability.FormattingEnabled = true;
+            this.cmbAvailability.Location = new System.Drawing.Point(575, 240);
+            this.cmbAvailability.Name = "cmbAvailability";
+            this.cmbAvailability.Size = new System.Drawing.Size(313, 24);
+            this.cmbAvailability.TabIndex = 51;
             // 
             // btnSave
             // 
@@ -183,15 +183,17 @@
             this.btnSave.TabIndex = 52;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnClear
+            // btnEdit
             // 
-            this.btnClear.Location = new System.Drawing.Point(813, 305);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 53;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(716, 305);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 53;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label6
             // 
@@ -202,15 +204,16 @@
             this.label6.TabIndex = 54;
             this.label6.Text = "Registered Drivers";
             // 
-            // dataGridView1
+            // dgvDrivers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 394);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(968, 233);
-            this.dataGridView1.TabIndex = 55;
+            this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrivers.Location = new System.Drawing.Point(42, 394);
+            this.dgvDrivers.Name = "dgvDrivers";
+            this.dgvDrivers.RowHeadersWidth = 51;
+            this.dgvDrivers.RowTemplate.Height = 24;
+            this.dgvDrivers.Size = new System.Drawing.Size(968, 233);
+            this.dgvDrivers.TabIndex = 55;
+            this.dgvDrivers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrivers_CellClick);
             // 
             // btnSearch
             // 
@@ -220,6 +223,7 @@
             this.btnSearch.TabIndex = 57;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -230,12 +234,13 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(698, 306);
+            this.btnDelete.Location = new System.Drawing.Point(854, 305);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 80;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ManageDrivers
             // 
@@ -245,11 +250,11 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDrivers);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbAvailability);
             this.Controls.Add(this.txtDriverId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -266,7 +271,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ManageDrivers";
             this.Text = "ManageDrivers";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,11 +293,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbAvailability;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDrivers;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnDelete;

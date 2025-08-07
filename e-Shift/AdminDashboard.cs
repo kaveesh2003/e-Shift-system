@@ -82,5 +82,13 @@ namespace e_Shift
             manageProducts.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
             manageProducts.Show();
         }
+
+        private void btnTransportUnit_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide Admin Dashboard
+            TransportUnit transportUnit = new TransportUnit();
+            transportUnit.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            transportUnit.Show();
+        }
     }
 }

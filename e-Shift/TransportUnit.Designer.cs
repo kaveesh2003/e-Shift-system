@@ -169,6 +169,7 @@
             this.btnMngDriver.TabIndex = 6;
             this.btnMngDriver.Text = "Manage Drivers";
             this.btnMngDriver.UseVisualStyleBackColor = true;
+            this.btnMngDriver.Click += new System.EventHandler(this.btnMngDriver_Click);
             // 
             // btnMngAssistant
             // 
@@ -178,6 +179,7 @@
             this.btnMngAssistant.TabIndex = 7;
             this.btnMngAssistant.Text = "Manage Assistant";
             this.btnMngAssistant.UseVisualStyleBackColor = true;
+            this.btnMngAssistant.Click += new System.EventHandler(this.btnMngAssistant_Click);
             // 
             // btnmngLorries
             // 
@@ -187,6 +189,7 @@
             this.btnmngLorries.TabIndex = 8;
             this.btnmngLorries.Text = "Manage Lorries";
             this.btnmngLorries.UseVisualStyleBackColor = true;
+            this.btnmngLorries.Click += new System.EventHandler(this.btnmngLorries_Click);
             // 
             // btnMngContainers
             // 
@@ -196,6 +199,7 @@
             this.btnMngContainers.TabIndex = 9;
             this.btnMngContainers.Text = "Manage Containers";
             this.btnMngContainers.UseVisualStyleBackColor = true;
+            this.btnMngContainers.Click += new System.EventHandler(this.btnMngContainers_Click);
             // 
             // label2
             // 

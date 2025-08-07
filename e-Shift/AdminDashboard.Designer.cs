@@ -91,6 +91,7 @@
             this.btnTransportUnit.TabIndex = 5;
             this.btnTransportUnit.Text = "Transport Unit";
             this.btnTransportUnit.UseVisualStyleBackColor = true;
+            this.btnTransportUnit.Click += new System.EventHandler(this.btnTransportUnit_Click);
             // 
             // btnProducts
             // 
