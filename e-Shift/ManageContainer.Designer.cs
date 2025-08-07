@@ -95,9 +95,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(47, 300);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 16);
+            this.label6.Size = new System.Drawing.Size(141, 16);
             this.label6.TabIndex = 113;
-            this.label6.Text = "Registered Lorries";
+            this.label6.Text = "Registered Containers";
             // 
             // btnClear
             // 
