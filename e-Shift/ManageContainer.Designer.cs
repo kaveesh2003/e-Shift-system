@@ -32,9 +32,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvContainers = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbAvailability = new System.Windows.Forms.ComboBox();
             this.txtContainerID = new System.Windows.Forms.TextBox();
@@ -44,7 +43,8 @@
             this.txtContainerCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnEdit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContainers)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbType
@@ -63,6 +63,7 @@
             this.btnDelete.TabIndex = 117;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSearch
             // 
@@ -72,6 +73,7 @@
             this.btnSearch.TabIndex = 116;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -79,16 +81,19 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(196, 22);
             this.txtSearch.TabIndex = 115;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // dataGridView1
+            // dgvContainers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 334);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(968, 285);
-            this.dataGridView1.TabIndex = 114;
+            this.dgvContainers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContainers.Location = new System.Drawing.Point(50, 334);
+            this.dgvContainers.Name = "dgvContainers";
+            this.dgvContainers.RowHeadersWidth = 51;
+            this.dgvContainers.RowTemplate.Height = 24;
+            this.dgvContainers.Size = new System.Drawing.Size(968, 285);
+            this.dgvContainers.TabIndex = 114;
+            this.dgvContainers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContainers_CellClick);
+            this.dgvContainers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContainers_CellContentClick);
             // 
             // label6
             // 
@@ -99,15 +104,6 @@
             this.label6.TabIndex = 113;
             this.label6.Text = "Registered Containers";
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(821, 238);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 112;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(583, 238);
@@ -116,6 +112,7 @@
             this.btnSave.TabIndex = 111;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbAvailability
             // 
@@ -184,18 +181,28 @@
             this.label1.TabIndex = 101;
             this.label1.Text = "Register a Container";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(841, 238);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 119;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // ManageContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvContainers);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbAvailability);
             this.Controls.Add(this.txtContainerID);
@@ -207,7 +214,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ManageContainer";
             this.Text = "ManageContainer";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ManageContainer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContainers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,9 +227,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvContainers;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbAvailability;
         private System.Windows.Forms.TextBox txtContainerID;
@@ -231,5 +238,6 @@
         private System.Windows.Forms.TextBox txtContainerCode;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
