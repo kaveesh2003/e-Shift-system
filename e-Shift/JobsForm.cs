@@ -99,5 +99,11 @@ namespace e_Shift
             // Bind results to DataGridView
             dgvRequestedJobs.DataSource = result;
         }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            CompleteJob completeJob = new CompleteJob();
+            completeJob.Show();
+        }
     }
 }

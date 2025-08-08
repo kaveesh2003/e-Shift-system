@@ -174,7 +174,7 @@ namespace e_Shift
         }
 
         //Fill combo box
-        public void FillComboBox(string query, ComboBox comboBox, string displayMember, string valueMember)
+        public static void FillComboBox(string query, ComboBox comboBox, string displayMember, string valueMember)
         {
             using (SqlConnection con = new SqlConnection(cs))
             using (SqlDataAdapter adapter = new SqlDataAdapter(query, con))
@@ -241,6 +241,57 @@ namespace e_Shift
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 grid.DataSource = dt;
+            }
+        }
+
+        //search lorries method 
+        public static DataTable SearchLorries(string searchText)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                string sql = @"
+                SELECT l.LorryID, l.PlateNumber, l.Availability, t.TypeName, t.UnitPrice
+                FROM Lorries l
+                INNER JOIN LorryTypes t ON l.TypeID = t.TypeID
+                WHERE l.PlateNumber LIKE @search
+                    OR l.Availability LIKE @search
+                    OR t.TypeName LIKE @search";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@search", "%" + searchText + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
+
+        public static DataTable GetData(string query, SqlParameter[] parameters = null)
+        {
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                        cmd.Parameters.AddRange(parameters);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        try
+                        {
+                            conn.Open();
+                            adapter.Fill(dt);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Optional: Log error or show message
+                            throw new Exception("Database error: " + ex.Message);
+                        }
+                        return dt;
+                    }
+                }
             }
         }
 

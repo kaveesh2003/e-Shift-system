@@ -31,22 +31,20 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLorries = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbAvailability = new System.Windows.Forms.ComboBox();
             this.txtLorryId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCapacity = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNoPlate = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmbLorryType = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLorries)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -57,6 +55,7 @@
             this.btnDelete.TabIndex = 99;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSearch
             // 
@@ -66,6 +65,7 @@
             this.btnSearch.TabIndex = 98;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -73,16 +73,18 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(196, 22);
             this.txtSearch.TabIndex = 97;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // dataGridView1
+            // dgvLorries
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 334);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(968, 285);
-            this.dataGridView1.TabIndex = 96;
+            this.dgvLorries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLorries.Location = new System.Drawing.Point(50, 334);
+            this.dgvLorries.Name = "dgvLorries";
+            this.dgvLorries.RowHeadersWidth = 51;
+            this.dgvLorries.RowTemplate.Height = 24;
+            this.dgvLorries.Size = new System.Drawing.Size(968, 285);
+            this.dgvLorries.TabIndex = 96;
+            this.dgvLorries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLorries_CellClick);
             // 
             // label6
             // 
@@ -93,14 +95,15 @@
             this.label6.TabIndex = 95;
             this.label6.Text = "Registered Lorries";
             // 
-            // btnClear
+            // btnEdit
             // 
-            this.btnClear.Location = new System.Drawing.Point(821, 238);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 94;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(821, 238);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 94;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -110,14 +113,15 @@
             this.btnSave.TabIndex = 93;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // comboBox1
+            // cmbAvailability
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(583, 165);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(313, 24);
-            this.comboBox1.TabIndex = 92;
+            this.cmbAvailability.FormattingEnabled = true;
+            this.cmbAvailability.Location = new System.Drawing.Point(583, 165);
+            this.cmbAvailability.Name = "cmbAvailability";
+            this.cmbAvailability.Size = new System.Drawing.Size(313, 24);
+            this.cmbAvailability.TabIndex = 92;
             // 
             // txtLorryId
             // 
@@ -144,26 +148,10 @@
             this.label7.TabIndex = 89;
             this.label7.Text = "Availability";
             // 
-            // txtCapacity
-            // 
-            this.txtCapacity.Location = new System.Drawing.Point(583, 95);
-            this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(313, 22);
-            this.txtCapacity.TabIndex = 86;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(580, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 16);
-            this.label3.TabIndex = 85;
-            this.label3.Text = "Capacity";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 206);
+            this.label2.Location = new System.Drawing.Point(580, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 83;
@@ -183,7 +171,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 16);
             this.label9.TabIndex = 81;
-            this.label9.Text = "Number Plate";
+            this.label9.Text = "Plate Number";
             // 
             // label1
             // 
@@ -194,40 +182,39 @@
             this.label1.TabIndex = 80;
             this.label1.Text = "Register a Lorry";
             // 
-            // comboBox2
+            // cmbLorryType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(173, 237);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(313, 24);
-            this.comboBox2.TabIndex = 100;
+            this.cmbLorryType.FormattingEnabled = true;
+            this.cmbLorryType.Location = new System.Drawing.Point(583, 100);
+            this.cmbLorryType.Name = "cmbLorryType";
+            this.cmbLorryType.Size = new System.Drawing.Size(313, 24);
+            this.cmbLorryType.TabIndex = 100;
             // 
             // ManageLorries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbLorryType);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLorries);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbAvailability);
             this.Controls.Add(this.txtLorryId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtCapacity);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNoPlate);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Name = "ManageLorries";
             this.Text = "ManageLorries";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ManageLorries_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLorries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,20 +225,18 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLorries;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbAvailability;
         private System.Windows.Forms.TextBox txtLorryId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCapacity;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNoPlate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbLorryType;
     }
 }

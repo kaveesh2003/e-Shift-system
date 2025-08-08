@@ -45,6 +45,7 @@
             this.btnAcceptJob = new System.Windows.Forms.Button();
             this.btnDecline = new System.Windows.Forms.Button();
             this.btnAssignTU = new System.Windows.Forms.Button();
+            this.btnComplete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedJobs)).BeginInit();
             this.SuspendLayout();
@@ -193,7 +194,7 @@
             // 
             // btnDecline
             // 
-            this.btnDecline.Location = new System.Drawing.Point(412, 577);
+            this.btnDecline.Location = new System.Drawing.Point(438, 578);
             this.btnDecline.Name = "btnDecline";
             this.btnDecline.Size = new System.Drawing.Size(104, 33);
             this.btnDecline.TabIndex = 42;
@@ -203,18 +204,29 @@
             // 
             // btnAssignTU
             // 
-            this.btnAssignTU.Location = new System.Drawing.Point(585, 577);
+            this.btnAssignTU.Location = new System.Drawing.Point(853, 577);
             this.btnAssignTU.Name = "btnAssignTU";
             this.btnAssignTU.Size = new System.Drawing.Size(178, 33);
             this.btnAssignTU.TabIndex = 43;
             this.btnAssignTU.Text = "Assign Transport Unit";
             this.btnAssignTU.UseVisualStyleBackColor = true;
             // 
+            // btnComplete
+            // 
+            this.btnComplete.Location = new System.Drawing.Point(655, 578);
+            this.btnComplete.Name = "btnComplete";
+            this.btnComplete.Size = new System.Drawing.Size(104, 33);
+            this.btnComplete.TabIndex = 44;
+            this.btnComplete.Text = "Complete Job";
+            this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
+            // 
             // JobsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
+            this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.btnAssignTU);
             this.Controls.Add(this.btnDecline);
             this.Controls.Add(this.btnAcceptJob);
@@ -253,5 +265,6 @@
         private System.Windows.Forms.Button btnAcceptJob;
         private System.Windows.Forms.Button btnDecline;
         private System.Windows.Forms.Button btnAssignTU;
+        private System.Windows.Forms.Button btnComplete;
     }
 }

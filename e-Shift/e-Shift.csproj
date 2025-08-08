@@ -54,6 +54,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompleteJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompleteJob.Designer.cs">
+      <DependentUpon>CompleteJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDashboard.cs">
       <SubType>Form</SubType>
@@ -158,6 +164,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompleteJob.resx">
+      <DependentUpon>CompleteJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
