@@ -55,7 +55,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSaveLoad = new System.Windows.Forms.Button();
-            this.btnClearForm = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -301,21 +302,31 @@
             this.btnSaveLoad.Text = "Save Load";
             this.btnSaveLoad.UseVisualStyleBackColor = true;
             // 
-            // btnClearForm
+            // btnEdit
             // 
-            this.btnClearForm.Location = new System.Drawing.Point(502, 588);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(169, 30);
-            this.btnClearForm.TabIndex = 22;
-            this.btnClearForm.Text = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(502, 588);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(169, 30);
+            this.btnEdit.TabIndex = 22;
+            this.btnEdit.Text = "Edit Load";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(741, 588);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(169, 30);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "Delete Load";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // LoadsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
-            this.Controls.Add(this.btnClearForm);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSaveLoad);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbLoadStatus);
@@ -375,6 +386,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSaveLoad;
-        private System.Windows.Forms.Button btnClearForm;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
