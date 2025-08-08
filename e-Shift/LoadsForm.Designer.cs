@@ -41,25 +41,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbJobID = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLoadDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbAddProduct = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtItemWeight = new System.Windows.Forms.TextBox();
             this.btnAddToLoad = new System.Windows.Forms.Button();
             this.txtTotalWeight = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbLoadStatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLoadProducts = new System.Windows.Forms.DataGridView();
             this.btnSaveLoad = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoadProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -184,13 +183,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Load Description";
             // 
-            // textBox1
+            // txtLoadDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(386, 144);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 56);
-            this.textBox1.TabIndex = 6;
+            this.txtLoadDescription.Location = new System.Drawing.Point(386, 144);
+            this.txtLoadDescription.Multiline = true;
+            this.txtLoadDescription.Name = "txtLoadDescription";
+            this.txtLoadDescription.Size = new System.Drawing.Size(244, 56);
+            this.txtLoadDescription.TabIndex = 6;
             // 
             // label4
             // 
@@ -218,13 +217,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Quantity";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(787, 83);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(123, 22);
-            this.numericUpDown1.TabIndex = 10;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -234,12 +226,12 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Weight (in kg)";
             // 
-            // textBox2
+            // txtItemWeight
             // 
-            this.textBox2.Location = new System.Drawing.Point(787, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(244, 22);
-            this.textBox2.TabIndex = 12;
+            this.txtItemWeight.Location = new System.Drawing.Point(787, 138);
+            this.txtItemWeight.Name = "txtItemWeight";
+            this.txtItemWeight.Size = new System.Drawing.Size(244, 22);
+            this.txtItemWeight.TabIndex = 12;
             // 
             // btnAddToLoad
             // 
@@ -249,6 +241,7 @@
             this.btnAddToLoad.TabIndex = 13;
             this.btnAddToLoad.Text = "Add product to Load";
             this.btnAddToLoad.UseVisualStyleBackColor = true;
+            this.btnAddToLoad.Click += new System.EventHandler(this.btnAddToLoad_Click);
             // 
             // txtTotalWeight
             // 
@@ -283,15 +276,16 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Load Status";
             // 
-            // dataGridView1
+            // dgvLoadProducts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(256, 277);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(775, 228);
-            this.dataGridView1.TabIndex = 20;
+            this.dgvLoadProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoadProducts.Location = new System.Drawing.Point(256, 277);
+            this.dgvLoadProducts.Name = "dgvLoadProducts";
+            this.dgvLoadProducts.RowHeadersWidth = 51;
+            this.dgvLoadProducts.RowTemplate.Height = 24;
+            this.dgvLoadProducts.Size = new System.Drawing.Size(775, 228);
+            this.dgvLoadProducts.TabIndex = 20;
+            this.dgvLoadProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoadProducts_CellClick);
             // 
             // btnSaveLoad
             // 
@@ -301,6 +295,7 @@
             this.btnSaveLoad.TabIndex = 21;
             this.btnSaveLoad.Text = "Save Load";
             this.btnSaveLoad.UseVisualStyleBackColor = true;
+            this.btnSaveLoad.Click += new System.EventHandler(this.btnSaveLoad_Click);
             // 
             // btnEdit
             // 
@@ -310,6 +305,7 @@
             this.btnEdit.TabIndex = 22;
             this.btnEdit.Text = "Edit Load";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -319,28 +315,36 @@
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "Delete Load";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Location = new System.Drawing.Point(787, 87);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(132, 22);
+            this.txtQuantity.TabIndex = 24;
             // 
             // LoadsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSaveLoad);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLoadProducts);
             this.Controls.Add(this.cmbLoadStatus);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTotalWeight);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddToLoad);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtItemWeight);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbAddProduct);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLoadDescription);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbJobID);
             this.Controls.Add(this.label2);
@@ -350,8 +354,7 @@
             this.Text = "LoadsForm";
             this.Load += new System.EventHandler(this.LoadsForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoadProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,21 +375,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbJobID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLoadDescription;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbAddProduct;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtItemWeight;
         private System.Windows.Forms.Button btnAddToLoad;
         private System.Windows.Forms.TextBox txtTotalWeight;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbLoadStatus;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLoadProducts;
         private System.Windows.Forms.Button btnSaveLoad;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtQuantity;
     }
 }

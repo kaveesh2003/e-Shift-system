@@ -111,6 +111,7 @@
             this.btnLoads.TabIndex = 3;
             this.btnLoads.Text = "Loads";
             this.btnLoads.UseVisualStyleBackColor = true;
+            this.btnLoads.Click += new System.EventHandler(this.btnLoads_Click);
             // 
             // btnJobs
             // 

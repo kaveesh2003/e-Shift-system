@@ -87,6 +87,7 @@
     <Compile Include="JobsForm.Designer.cs">
       <DependentUpon>JobsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadProduct.cs" />
     <Compile Include="LoadsForm.cs">
       <SubType>Form</SubType>
     </Compile>
