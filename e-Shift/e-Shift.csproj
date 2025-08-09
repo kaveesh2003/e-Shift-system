@@ -156,6 +156,12 @@
     <Compile Include="TempDasboard.Designer.cs">
       <DependentUpon>TempDasboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrackJobForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackJobForm.Designer.cs">
+      <DependentUpon>TrackJobForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransportUnit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TempDasboard.resx">
       <DependentUpon>TempDasboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackJobForm.resx">
+      <DependentUpon>TrackJobForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportUnit.resx">
       <DependentUpon>TransportUnit.cs</DependentUpon>

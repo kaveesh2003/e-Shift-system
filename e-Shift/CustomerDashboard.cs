@@ -27,8 +27,6 @@ namespace e_Shift
             _currentCustomer.LoadCustomerDetails();
             lblWelcome.Text = $"Welcome, {_currentCustomer.FullName}";
 
-            // Show job summary now since profile is guaranteed to be complete
-            grpJobSummary.Visible = true;
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -73,6 +71,12 @@ namespace e_Shift
         private void lblWelcome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTrackJob_Click(object sender, EventArgs e)
+        {
+            TrackJobForm trackJobForm = new TrackJobForm(_currentCustomer.UserID);
+            trackJobForm.Show();
         }
     }
 }
