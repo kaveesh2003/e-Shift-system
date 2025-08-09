@@ -50,6 +50,8 @@
             this.btnGenerateReport = new System.Windows.Forms.Button();
             this.cmbLoadStatus = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbAvailabilityStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +171,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cmbAvailabilityStatus);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cmbLoadStatus);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.dtpFromDate);
@@ -179,7 +183,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(272, 159);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(612, 289);
+            this.panel2.Size = new System.Drawing.Size(612, 347);
             this.panel2.TabIndex = 5;
             // 
             // label3
@@ -233,7 +237,7 @@
             // 
             // btnGenerateReport
             // 
-            this.btnGenerateReport.Location = new System.Drawing.Point(493, 472);
+            this.btnGenerateReport.Location = new System.Drawing.Point(493, 534);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(174, 39);
             this.btnGenerateReport.TabIndex = 6;
@@ -257,6 +261,23 @@
             this.label6.Size = new System.Drawing.Size(78, 16);
             this.label6.TabIndex = 6;
             this.label6.Text = "Load Status";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 296);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Availability Status";
+            // 
+            // cmbAvailabilityStatus
+            // 
+            this.cmbAvailabilityStatus.FormattingEnabled = true;
+            this.cmbAvailabilityStatus.Location = new System.Drawing.Point(197, 288);
+            this.cmbAvailabilityStatus.Name = "cmbAvailabilityStatus";
+            this.cmbAvailabilityStatus.Size = new System.Drawing.Size(269, 24);
+            this.cmbAvailabilityStatus.TabIndex = 9;
             // 
             // FormReports
             // 
@@ -304,5 +325,7 @@
         private System.Windows.Forms.Button btnGenerateReport;
         private System.Windows.Forms.ComboBox cmbLoadStatus;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbAvailabilityStatus;
+        private System.Windows.Forms.Label label7;
     }
 }

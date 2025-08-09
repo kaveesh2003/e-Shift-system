@@ -91,6 +91,24 @@ namespace e_Shift
                 });
                 parameters.Add(pfStatus);
             }
+            else if (selected == "Transport Units Report")
+            {
+                reportPath = Path.Combine(Application.StartupPath, "Reports", "TransportUnitDetailsReport.rpt");
+
+                // Create the AvailabilityStatus parameter
+                ParameterField availabilityParam = new ParameterField();
+                availabilityParam.Name = "AvailabilityStatus";  // Must match your Crystal parameter name
+
+                ParameterDiscreteValue availabilityValue = new ParameterDiscreteValue();
+
+                // Get selected availability status from UI or default to "All"
+                string availabilityStatus = cmbAvailabilityStatus.SelectedItem?.ToString() ?? "All";
+
+                availabilityValue.Value = availabilityStatus;
+                availabilityParam.CurrentValues.Add(availabilityValue);
+
+                parameters.Add(availabilityParam);
+            }
             else
             {
                 MessageBox.Show("Selected report is not implemented yet.");
@@ -119,7 +137,6 @@ namespace e_Shift
             cmbReportType.Items.Add("Job Report");
             cmbReportType.Items.Add("Load Report");
             cmbReportType.Items.Add("Transport Units Report");
-            cmbReportType.Items.Add("Job Status Summary");
 
             // Optionally select the first item by default
             if (cmbReportType.Items.Count > 0)
@@ -133,6 +150,7 @@ namespace e_Shift
             LoadReportTypes();
             LoadJobStatus();
             LoadLoadStatus();
+            LoadAvailabilityStatus();
         }
 
         private void LoadJobStatus()
@@ -155,6 +173,18 @@ namespace e_Shift
             cmbLoadStatus.Items.Add("Pending");
             cmbLoadStatus.Items.Add("In Transit");
             cmbLoadStatus.Items.Add("Delivered");
+        }
+
+        private void LoadAvailabilityStatus()
+        {
+            cmbAvailabilityStatus.Items.Clear();
+
+            cmbAvailabilityStatus.Items.Add("All");
+            cmbAvailabilityStatus.Items.Add("Available");
+            cmbAvailabilityStatus.Items.Add("On Job");
+            cmbAvailabilityStatus.Items.Add("Pending");
+            cmbAvailabilityStatus.Items.Add("In Transit");
+            cmbAvailabilityStatus.Items.Add("Completed");
         }
     }
 }
