@@ -266,6 +266,7 @@
             this.cmbLoadStatus.Name = "cmbLoadStatus";
             this.cmbLoadStatus.Size = new System.Drawing.Size(139, 24);
             this.cmbLoadStatus.TabIndex = 17;
+            this.cmbLoadStatus.SelectedIndexChanged += new System.EventHandler(this.cmbLoadStatus_SelectedIndexChanged);
             // 
             // label8
             // 

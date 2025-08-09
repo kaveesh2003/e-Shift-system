@@ -125,6 +125,14 @@ namespace e_Shift
                 cmd.Parameters.AddWithValue("@totalWeight", totalWeight);
 
                 loadId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Update the Job status to 'In Progress' for the selected JobID
+                string updateJobStatusSql = "UPDATE Jobs SET Status = @status WHERE JobID = @jobId";
+                SqlCommand updateCmd = new SqlCommand(updateJobStatusSql, con);
+                updateCmd.Parameters.AddWithValue("@status", "In Progress");
+                updateCmd.Parameters.AddWithValue("@jobId", jobId);
+
+                updateCmd.ExecuteNonQuery();
             }
 
             // Save LoadProducts
@@ -315,6 +323,11 @@ namespace e_Shift
             }
 
             RefreshProductGrid();
+        }
+
+        private void cmbLoadStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -59,7 +59,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -346,14 +346,14 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // btnClear
+            // btnEdit
             // 
-            this.btnClear.Location = new System.Drawing.Point(969, 366);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 101;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(969, 366);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 101;
+            this.btnEdit.Text = "Clear";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -370,7 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dtpDelivery);
@@ -436,7 +436,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
     }
 }
