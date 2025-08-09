@@ -48,6 +48,8 @@
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.btnGenerateReport = new System.Windows.Forms.Button();
+            this.cmbLoadStatus = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +169,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cmbLoadStatus);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.dtpFromDate);
             this.panel2.Controls.Add(this.dtpToDate);
             this.panel2.Controls.Add(this.cmbJobStatus);
@@ -181,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 64);
+            this.label3.Location = new System.Drawing.Point(18, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 0;
@@ -190,7 +194,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 122);
+            this.label4.Location = new System.Drawing.Point(18, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 1;
@@ -199,7 +203,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 189);
+            this.label5.Location = new System.Drawing.Point(18, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 2;
@@ -208,21 +212,21 @@
             // cmbJobStatus
             // 
             this.cmbJobStatus.FormattingEnabled = true;
-            this.cmbJobStatus.Location = new System.Drawing.Point(197, 186);
+            this.cmbJobStatus.Location = new System.Drawing.Point(197, 166);
             this.cmbJobStatus.Name = "cmbJobStatus";
             this.cmbJobStatus.Size = new System.Drawing.Size(269, 24);
             this.cmbJobStatus.TabIndex = 3;
             // 
             // dtpToDate
             // 
-            this.dtpToDate.Location = new System.Drawing.Point(197, 122);
+            this.dtpToDate.Location = new System.Drawing.Point(197, 102);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(269, 22);
             this.dtpToDate.TabIndex = 4;
             // 
             // dtpFromDate
             // 
-            this.dtpFromDate.Location = new System.Drawing.Point(197, 58);
+            this.dtpFromDate.Location = new System.Drawing.Point(197, 38);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(269, 22);
             this.dtpFromDate.TabIndex = 5;
@@ -236,6 +240,23 @@
             this.btnGenerateReport.Text = "Generate Report";
             this.btnGenerateReport.UseVisualStyleBackColor = true;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
+            // 
+            // cmbLoadStatus
+            // 
+            this.cmbLoadStatus.FormattingEnabled = true;
+            this.cmbLoadStatus.Location = new System.Drawing.Point(197, 226);
+            this.cmbLoadStatus.Name = "cmbLoadStatus";
+            this.cmbLoadStatus.Size = new System.Drawing.Size(269, 24);
+            this.cmbLoadStatus.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 229);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Load Status";
             // 
             // FormReports
             // 
@@ -281,5 +302,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGenerateReport;
+        private System.Windows.Forms.ComboBox cmbLoadStatus;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -21,35 +21,90 @@ namespace e_Shift
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
-            if (cmbReportType.SelectedItem?.ToString() != "Customer Report")
-                return; // Handle other reports separately later
+            string selected = cmbReportType.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selected))
+            {
+                MessageBox.Show("Select a report");
+                return;
+            }
 
-            string reportPath = Path.Combine(Application.StartupPath, "Reports", "CustomerReport.rpt");
+            // Create parameters list
+            ParameterFields parameters = new ParameterFields();
+            string reportPath = "";
 
+            if (selected == "Customer Report")
+            {
+                reportPath = Path.Combine(Application.StartupPath, "Reports", "CustomerReport.rpt");
+
+                ParameterField fromDateParam = new ParameterField();
+                fromDateParam.Name = "@FromDate";
+                fromDateParam.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpFromDate.Value.Date });
+                parameters.Add(fromDateParam);
+
+                ParameterField toDateParam = new ParameterField();
+                toDateParam.Name = "@ToDate";
+                toDateParam.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpToDate.Value.Date });
+                parameters.Add(toDateParam);
+            }
+
+            else if (selected == "Job Report")
+            {
+                reportPath = Path.Combine(Application.StartupPath, "Reports", "JobReport.rpt");
+
+                ParameterField pfFrom = new ParameterField();
+                pfFrom.Name = "FromDate";
+                pfFrom.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpFromDate.Value.Date });
+                parameters.Add(pfFrom);
+
+                ParameterField pfTo = new ParameterField();
+                pfTo.Name = "ToDate";
+                pfTo.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpToDate.Value.Date });
+                parameters.Add(pfTo);
+
+                ParameterField pfStatus = new ParameterField();
+                pfStatus.Name = "JobStatus";
+                pfStatus.CurrentValues.Add(new ParameterDiscreteValue
+                {
+                    Value = cmbJobStatus.SelectedItem?.ToString() ?? "All"
+                });
+                parameters.Add(pfStatus);
+            }
+            else if (selected == "Load Report")
+            {
+                reportPath = Path.Combine(Application.StartupPath, "Reports", "LoadReport.rpt");
+
+                ParameterField pfFrom = new ParameterField();
+                pfFrom.Name = "FromDate";
+                pfFrom.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpFromDate.Value.Date });
+                parameters.Add(pfFrom);
+
+                ParameterField pfTo = new ParameterField();
+                pfTo.Name = "ToDate";
+                pfTo.CurrentValues.Add(new ParameterDiscreteValue { Value = dtpToDate.Value.Date });
+                parameters.Add(pfTo);
+
+                ParameterField pfStatus = new ParameterField();
+                pfStatus.Name = "LoadStatus";
+                pfStatus.CurrentValues.Add(new ParameterDiscreteValue
+                {
+                    Value = cmbLoadStatus.SelectedItem?.ToString() ?? "All"
+                });
+                parameters.Add(pfStatus);
+            }
+            else
+            {
+                MessageBox.Show("Selected report is not implemented yet.");
+                return;
+            }
+
+            // Check if file exists
             if (!File.Exists(reportPath))
             {
                 MessageBox.Show("Report file not found: " + reportPath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Create parameters
-            ParameterFields parameters = new ParameterFields();
-
-            ParameterField fromDateParam = new ParameterField();
-            fromDateParam.Name = "@FromDate"; // match your Crystal parameter name
-            ParameterDiscreteValue fromDateValue = new ParameterDiscreteValue();
-            fromDateValue.Value = dtpFromDate.Value.Date;
-            fromDateParam.CurrentValues.Add(fromDateValue);
-            parameters.Add(fromDateParam);
-
-            ParameterField toDateParam = new ParameterField();
-            toDateParam.Name = "@ToDate"; // match your Crystal parameter name
-            ParameterDiscreteValue toDateValue = new ParameterDiscreteValue();
-            toDateValue.Value = dtpToDate.Value.Date;
-            toDateParam.CurrentValues.Add(toDateValue);
-            parameters.Add(toDateParam);
-
-            // Open viewer
+            // Show in viewer
             ReportViewerForm viewer = new ReportViewerForm(reportPath, parameters);
             viewer.ShowDialog();
         }
@@ -64,7 +119,6 @@ namespace e_Shift
             cmbReportType.Items.Add("Job Report");
             cmbReportType.Items.Add("Load Report");
             cmbReportType.Items.Add("Transport Units Report");
-            cmbReportType.Items.Add("Revenue/Cost Report");
             cmbReportType.Items.Add("Job Status Summary");
 
             // Optionally select the first item by default
@@ -78,6 +132,7 @@ namespace e_Shift
         {
             LoadReportTypes();
             LoadJobStatus();
+            LoadLoadStatus();
         }
 
         private void LoadJobStatus()
@@ -90,6 +145,16 @@ namespace e_Shift
             cmbJobStatus.Items.Add("In Progress");
             cmbJobStatus.Items.Add("In Transit");
             cmbJobStatus.Items.Add("Completed");
+        }
+
+        private void LoadLoadStatus()
+        {
+            cmbLoadStatus.Items.Clear();
+
+            cmbLoadStatus.Items.Add("All");
+            cmbLoadStatus.Items.Add("Pending");
+            cmbLoadStatus.Items.Add("In Transit");
+            cmbLoadStatus.Items.Add("Delivered");
         }
     }
 }

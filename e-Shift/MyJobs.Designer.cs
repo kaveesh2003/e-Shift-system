@@ -41,7 +41,6 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.btnClearFilter = new System.Windows.Forms.Button();
             this.dgvJobs = new System.Windows.Forms.DataGridView();
-            this.btnViewDetails = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
@@ -168,16 +167,6 @@
             this.dgvJobs.Size = new System.Drawing.Size(751, 271);
             this.dgvJobs.TabIndex = 7;
             // 
-            // btnViewDetails
-            // 
-            this.btnViewDetails.Location = new System.Drawing.Point(278, 524);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(148, 23);
-            this.btnViewDetails.TabIndex = 8;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseVisualStyleBackColor = true;
-            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(884, 524);
@@ -194,7 +183,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 653);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.dgvJobs);
             this.Controls.Add(this.btnClearFilter);
             this.Controls.Add(this.btnFilter);
@@ -227,7 +215,6 @@
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Button btnClearFilter;
         private System.Windows.Forms.DataGridView dgvJobs;
-        private System.Windows.Forms.Button btnViewDetails;
         private System.Windows.Forms.Button btnCancel;
     }
 }
