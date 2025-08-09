@@ -295,6 +295,21 @@ namespace e_Shift
             }
         }
 
+        //grid view methhod for TU 
+        public static void LoadDataToGridView(string sqlQuery, DataGridView grid)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, con))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    grid.DataSource = dt;
+                }
+            }
+        }
+
 
 
     }

@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbAssistant = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbContainer = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbLoadID = new System.Windows.Forms.ComboBox();
@@ -57,12 +57,12 @@
             this.dtpPickup = new System.Windows.Forms.DateTimePicker();
             this.dtpDelivery = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTransportUnit = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransportUnit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -261,13 +261,13 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Assistant";
             // 
-            // comboBox1
+            // cmbContainer
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(791, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 24);
-            this.comboBox1.TabIndex = 18;
+            this.cmbContainer.FormattingEnabled = true;
+            this.cmbContainer.Location = new System.Drawing.Point(791, 201);
+            this.cmbContainer.Name = "cmbContainer";
+            this.cmbContainer.Size = new System.Drawing.Size(251, 24);
+            this.cmbContainer.TabIndex = 18;
             // 
             // label6
             // 
@@ -294,6 +294,7 @@
             this.cmbLoadID.Name = "cmbLoadID";
             this.cmbLoadID.Size = new System.Drawing.Size(251, 24);
             this.cmbLoadID.TabIndex = 21;
+            this.cmbLoadID.SelectedIndexChanged += new System.EventHandler(this.cmbLoadID_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -327,15 +328,16 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "Delivery Date and Time";
             // 
-            // dataGridView1
+            // dgvTransportUnit
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(241, 428);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(801, 190);
-            this.dataGridView1.TabIndex = 25;
+            this.dgvTransportUnit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransportUnit.Location = new System.Drawing.Point(241, 428);
+            this.dgvTransportUnit.Name = "dgvTransportUnit";
+            this.dgvTransportUnit.RowHeadersWidth = 51;
+            this.dgvTransportUnit.RowTemplate.Height = 24;
+            this.dgvTransportUnit.Size = new System.Drawing.Size(801, 190);
+            this.dgvTransportUnit.TabIndex = 25;
+            this.dgvTransportUnit.SelectionChanged += new System.EventHandler(this.dgvTransportUnit_SelectionChanged);
             // 
             // btnDelete
             // 
@@ -345,6 +347,7 @@
             this.btnDelete.TabIndex = 102;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -352,8 +355,9 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 101;
-            this.btnEdit.Text = "Clear";
+            this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -363,6 +367,7 @@
             this.btnSave.TabIndex = 100;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // TransportUnit
             // 
@@ -372,14 +377,14 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTransportUnit);
             this.Controls.Add(this.dtpDelivery);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpPickup);
             this.Controls.Add(this.cmbLoadID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbContainer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbAssistant);
             this.Controls.Add(this.label5);
@@ -396,8 +401,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "TransportUnit";
             this.Text = "TransportUnit";
+            this.Load += new System.EventHandler(this.TransportUnit_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransportUnit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,7 +432,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbAssistant;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbContainer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbLoadID;
@@ -434,7 +440,7 @@
         private System.Windows.Forms.DateTimePicker dtpPickup;
         private System.Windows.Forms.DateTimePicker dtpDelivery;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTransportUnit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;

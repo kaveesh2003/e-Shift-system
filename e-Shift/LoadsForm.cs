@@ -37,7 +37,7 @@ namespace e_Shift
             cmbLoadStatus.Text = "Pending";
 
             LoadLoadStatusOptions();
-            //LoadLoadsToGrid();
+            
 
 
         }
@@ -48,7 +48,7 @@ namespace e_Shift
             cmbLoadStatus.Items.Add("Pending");
             cmbLoadStatus.Items.Add("In Transit");
             cmbLoadStatus.Items.Add("Delivered");
-            cmbLoadStatus.SelectedIndex = 0; // Optional: Selects "Pending" by default
+            cmbLoadStatus.SelectedIndex = 0; 
         }
 
         private void btnAddToLoad_Click(object sender, EventArgs e)
