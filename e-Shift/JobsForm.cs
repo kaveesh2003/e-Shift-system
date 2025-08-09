@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -102,8 +103,25 @@ namespace e_Shift
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            CompleteJob completeJob = new CompleteJob();
-            completeJob.Show();
+            if (dgvRequestedJobs.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a job to complete.");
+                return;
+            }
+
+            int selectedJobId = Convert.ToInt32(dgvRequestedJobs.SelectedRows[0].Cells["JobID"].Value);
+            string status = dgvRequestedJobs.SelectedRows[0].Cells["Status"].Value.ToString();
+
+            if (status != "In Transit")
+            {
+                MessageBox.Show("Only jobs with status 'In Transit' can be completed.");
+                return;
+            }
+
+            CompleteJob completeJobForm = new CompleteJob(selectedJobId);
+            completeJobForm.ShowDialog();
+
+            LoadJobData();
         }
     }
 }
