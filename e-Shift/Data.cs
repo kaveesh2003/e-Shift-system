@@ -310,6 +310,28 @@ namespace e_Shift
             }
         }
 
+        //methods for customer dashboard
+        public static int ExecuteScalarInt(string query)
+        {
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 0;
+            }
+        }
+
+        public static DataTable GetDataTable(string query)
+        {
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
 
 
     }

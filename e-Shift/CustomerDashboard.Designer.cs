@@ -47,7 +47,7 @@
             this.lblCompletedJobs = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lstRecentActivity = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -204,20 +204,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 54);
+            this.label2.Location = new System.Drawing.Point(19, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(106, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "Completed Jobs";
             // 
             // lblCompletedJobs
             // 
             this.lblCompletedJobs.AutoSize = true;
-            this.lblCompletedJobs.Location = new System.Drawing.Point(19, 18);
+            this.lblCompletedJobs.Location = new System.Drawing.Point(41, 54);
             this.lblCompletedJobs.Name = "lblCompletedJobs";
-            this.lblCompletedJobs.Size = new System.Drawing.Size(106, 16);
+            this.lblCompletedJobs.Size = new System.Drawing.Size(44, 16);
             this.lblCompletedJobs.TabIndex = 0;
-            this.lblCompletedJobs.Text = "Completed Jobs";
+            this.lblCompletedJobs.Text = "label2";
             // 
             // label4
             // 
@@ -230,21 +230,21 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.listView1);
+            this.panel5.Controls.Add(this.lstRecentActivity);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(267, 327);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(374, 272);
+            this.panel5.Size = new System.Drawing.Size(710, 272);
             this.panel5.TabIndex = 6;
             // 
-            // listView1
+            // lstRecentActivity
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(19, 57);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(333, 188);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lstRecentActivity.HideSelection = false;
+            this.lstRecentActivity.Location = new System.Drawing.Point(19, 57);
+            this.lstRecentActivity.Name = "lstRecentActivity";
+            this.lstRecentActivity.Size = new System.Drawing.Size(668, 188);
+            this.lstRecentActivity.TabIndex = 7;
+            this.lstRecentActivity.UseCompatibleStateImageBehavior = false;
             // 
             // label5
             // 
@@ -306,7 +306,7 @@
         private System.Windows.Forms.Label lblCompletedJobs;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lstRecentActivity;
         private System.Windows.Forms.Label label5;
     }
 }

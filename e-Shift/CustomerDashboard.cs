@@ -20,6 +20,8 @@ namespace e_Shift
             InitializeComponent();
 
             _currentCustomer = new Customer(loggedInUserId, loggedInUserName);
+
+            SetupRecentActivityListView();
         }
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
@@ -27,6 +29,23 @@ namespace e_Shift
             _currentCustomer.LoadCustomerDetails();
             lblWelcome.Text = $"Welcome, {_currentCustomer.FullName}";
 
+            int custId = _currentCustomer.UserID;
+
+            // Load summary cards
+            lblTotalJobs.Text = GetTotalJobs(custId).ToString();
+            lblActivateJobs.Text = GetActiveJobs(custId).ToString();
+            lblCompletedJobs.Text = GetCompletedJobs(custId).ToString();
+            
+
+            // Load recent activity feed
+            DataTable recentUpdates = GetRecentJobUpdates(custId);
+            lstRecentActivity.Items.Clear();
+            foreach (DataRow row in recentUpdates.Rows)
+            {
+                lstRecentActivity.Items.Add(row["UpdateInfo"].ToString());
+            }
+
+            LoadRecentActivity(custId);
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -78,5 +97,63 @@ namespace e_Shift
             TrackJobForm trackJobForm = new TrackJobForm(_currentCustomer.UserID);
             trackJobForm.Show();
         }
+
+        // Get count of all jobs for the customer
+        private int GetTotalJobs(int customerId)
+        {
+            string query = $"SELECT COUNT(*) FROM Jobs WHERE UserID = {customerId}";
+            return Data.ExecuteScalarInt(query);
+        }
+
+        // Get count of active jobs (Pending + In Transit)
+        private int GetActiveJobs(int customerId)
+        {
+            string query = $"SELECT COUNT(*) FROM Jobs WHERE UserID = {customerId} AND Status IN ('Pending', 'In Transit')";
+            return Data.ExecuteScalarInt(query);
+        }
+
+        // Get count of completed jobs
+        private int GetCompletedJobs(int customerId)
+        {
+            string query = $"SELECT COUNT(*) FROM Jobs WHERE UserID = {customerId} AND Status = 'Completed'";
+            return Data.ExecuteScalarInt(query);
+        }
+
+        // Get recent job status updates (last 5)
+        private DataTable GetRecentJobUpdates(int customerId)
+        {
+            string query = $@"
+            SELECT TOP 5
+            CONCAT('Job #', JobID, ' is currently ', Status) AS UpdateInfo
+            FROM Jobs
+            WHERE UserID = {customerId}
+            ORDER BY JobID DESC";
+
+            return Data.GetDataTable(query);
+        }
+
+        private void SetupRecentActivityListView()
+        {
+            // Set view mode to List for simple single-column display
+            lstRecentActivity.View = View.List;
+            lstRecentActivity.Columns.Clear();  // no columns needed for List view
+            lstRecentActivity.HeaderStyle = ColumnHeaderStyle.None; // no header shown
+        }
+
+        private void LoadRecentActivity(int customerId)
+        {
+            DataTable recentUpdates = GetRecentJobUpdates(customerId);
+            lstRecentActivity.Items.Clear();
+
+            foreach (DataRow row in recentUpdates.Rows)
+            {
+                string updateText = row["UpdateInfo"].ToString();
+                ListViewItem item = new ListViewItem(updateText);
+                lstRecentActivity.Items.Add(item);
+            }
+        }
+
+
+
     }
 }
