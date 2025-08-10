@@ -201,63 +201,7 @@ namespace e_Shift
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvLoadProducts.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a load to edit.");
-                return;
-            }
-            // Get selected LoadID
-            int loadId = Convert.ToInt32(dgvLoadProducts.SelectedRows[0].Cells["LoadID"].Value);
-
-            // Input validation
-            if (cmbJobID.SelectedItem == null || string.IsNullOrWhiteSpace(txtLoadDescription.Text))
-            {
-                MessageBox.Show("Please select a Job and enter a description.");
-                return;
-            }
-
-            // Get data from fields
-            int jobId = Convert.ToInt32(cmbJobID.SelectedValue);
-            string description = txtLoadDescription.Text;
-            string status = cmbLoadStatus.Text;
-            decimal totalWeight = tempLoadProducts.Sum(p => p.TotalWeight);
-
-            // Prepare update
-            Dictionary<string, object> updateData = new Dictionary<string, object>
-            {
-                { "JobID", jobId },
-                { "Description", description },
-                { "Status", status },
-                { "TotalWeight", totalWeight }
-            };
-
-            // Execute update
-            Data.UpdateRecord("Loads", "LoadID", loadId, updateData);
-
-            // (Optional) Delete old LoadProducts and re-insert current ones
-            string deleteQuery = "DELETE FROM LoadProducts WHERE LoadID = @id";
-            SqlParameter[] param = { new SqlParameter("@id", loadId) };
-            Data.ExecuteNonQuery(deleteQuery, param);
-
-            foreach (var p in tempLoadProducts)
-            {
-                string insertQuery = "INSERT INTO LoadProducts (LoadID, ProductID, Quantity, TotalWeight) " +
-                                     "VALUES (@loadId, @productId, @qty, @totalWeight)";
-                SqlParameter[] lpParams = new SqlParameter[]
-                {
-                    new SqlParameter("@loadId", loadId),
-                    new SqlParameter("@productId", p.ProductID),
-                    new SqlParameter("@qty", p.Quantity),
-                    new SqlParameter("@totalWeight", p.TotalWeight)
-                };
-
-                Data.ExecuteNonQuery(insertQuery, lpParams);
-            }
-
-            MessageBox.Show("Load updated successfully!");
-
-            LoadLoadsToGrid();
-            ClearLoadForm();
+            
         }
 
         private void dgvLoadProducts_CellClick(object sender, DataGridViewCellEventArgs e)

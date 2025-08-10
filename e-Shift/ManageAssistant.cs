@@ -137,5 +137,10 @@ namespace e_Shift
         {
 
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
