@@ -26,6 +26,14 @@ namespace e_Shift
                 Role = cmbRole.SelectedItem.ToString()
             };
 
+            // Validate password here before signup
+            if (!IsValidPassword(user.Password))
+            {
+                MessageBox.Show("Password must be at least 8 characters long and contain uppercase, lowercase, digit, and special character.",
+                                "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             bool result = user.SignUp();
 
             if (result)
@@ -34,8 +42,19 @@ namespace e_Shift
             }
             else
             {
-                MessageBox.Show("Registration failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Registration failed. Username might already exist or an error occurred.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password)) return false;
+            if (password.Length < 8) return false; // Minimum 8 characters
+            if (!password.Any(char.IsUpper)) return false; // At least one uppercase
+            if (!password.Any(char.IsLower)) return false;
+            if (!password.Any(char.IsDigit)) return false; 
+            if (!password.Any(ch => "!@#$%^&*()_-+=<>?".Contains(ch))) return false; // At least one special char
+            return true;
         }
     }
 }

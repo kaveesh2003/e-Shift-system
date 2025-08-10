@@ -18,6 +18,12 @@ namespace e_Shift
         //Sign Up Method
         public bool SignUp()
         {
+            // Password validation
+            if (!IsValidPassword(this.Password))
+            {
+                return false;
+            }
+
             string checkQuery = "SELECT * FROM [Users] WHERE Username = @Username";
             SqlParameter[] checkParams =
             {
@@ -70,6 +76,18 @@ namespace e_Shift
             }
 
             return false;
+        }
+
+        // Password validation helper
+        private bool IsValidPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password)) return false;
+            if (password.Length < 8) return false; // Minimum 8 characters
+            if (!password.Any(char.IsUpper)) return false; // At least one uppercase
+            if (!password.Any(char.IsLower)) return false; // At least one lowercase
+            if (!password.Any(char.IsDigit)) return false; // At least one digit
+            if (!password.Any(ch => "!@#$%^&*()_-+=<>?".Contains(ch))) return false; // At least one special char
+            return true;
         }
     }
 }

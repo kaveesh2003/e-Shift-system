@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.btnMyJobs);
             this.panel1.Controls.Add(this.btnReqShift);
             this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Location = new System.Drawing.Point(2, 3);
+            this.panel1.Location = new System.Drawing.Point(5, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 639);
             this.panel1.TabIndex = 0;
