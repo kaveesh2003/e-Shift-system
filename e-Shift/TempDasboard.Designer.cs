@@ -117,6 +117,7 @@
             // btnProfile
             // 
             this.btnProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnProfile.Enabled = false;
             this.btnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfile.Location = new System.Drawing.Point(13, 488);
             this.btnProfile.Name = "btnProfile";

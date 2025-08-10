@@ -33,10 +33,9 @@ namespace e_Shift
             this.Username = username;
         }
 
-        // Simulate profile completeness check (you can update this to query DB)
+        // Simulate profile completeness check
         public bool IsProfileComplete()
         {
-            // Ideally, check DB fields like Mobile, City, Age etc.
             return Data.IsCustomerProfileComplete(UserID);
         }
 
@@ -55,8 +54,9 @@ namespace e_Shift
 
                 if (count > 0)
                 {
-                    MessageBox.Show("A customer with this NIC or Email already exists.", "Duplicate Entry");
-                    return; // Stop further execution
+                    MessageBox.Show("A customer with this NIC or Email already exists.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return; 
                 }
             }
 
@@ -98,10 +98,10 @@ namespace e_Shift
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"UPDATE Customers 
-                                          SET FullName = @FullName, NIC = @NIC, Email = @Email, 
-                                              Mobile = @Mobile, Address = @Address, 
-                                              City = @City, Age = @Age 
-                                          WHERE UserID = @UserID", con);
+                                                SET FullName = @FullName, NIC = @NIC, Email = @Email, 
+                                                Mobile = @Mobile, Address = @Address, 
+                                                City = @City, Age = @Age 
+                                                WHERE UserID = @UserID", con);
 
                 cmd.Parameters.AddWithValue("@FullName", this.FullName);
                 cmd.Parameters.AddWithValue("@NIC", this.NIC);

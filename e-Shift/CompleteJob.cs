@@ -26,13 +26,23 @@ namespace e_Shift
         {
             if (!decimal.TryParse(txtDistance.Text, out decimal distance))
             {
-                MessageBox.Show("Please enter a valid distance.");
+                MessageBox.Show(
+                    "Please enter a valid distance.",
+                    "Invalid Input",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                   );
                 return;
             }
 
             if (!decimal.TryParse(txtTotalCost.Text, out decimal totalCost))
             {
-                MessageBox.Show("Please calculate the total cost before completing the job.");
+                MessageBox.Show(
+                    "Please calculate the total cost before completing the job.",
+                    "Action Required",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                   );
                 return;
             }
 
@@ -43,11 +53,11 @@ namespace e_Shift
                 {
                     try
                     {
-                        // 1. Update Jobs status to Completed
+                        //Update Jobs status to Completed
                         string updateJobSql = @"
-                    UPDATE Jobs
-                    SET Status = 'Completed'
-                    WHERE JobID = @jobId";
+                            UPDATE Jobs
+                            SET Status = 'Completed'
+                            WHERE JobID = @jobId";
 
                         using (SqlCommand cmd = new SqlCommand(updateJobSql, con, tran))
                         {
@@ -55,10 +65,10 @@ namespace e_Shift
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 2. Insert into JobCompletionDetails
+                        // Insert into JobCompletionDetails
                         string insertCompletionSql = @"
-                    INSERT INTO JobCompletionDetails (JobID, TravelDistance, TotalCost)
-                    VALUES (@jobId, @distance, @totalCost)";
+                            INSERT INTO JobCompletionDetails (JobID, TravelDistance, TotalCost)
+                            VALUES (@jobId, @distance, @totalCost)";
 
                         using (SqlCommand cmd = new SqlCommand(insertCompletionSql, con, tran))
                         {
@@ -68,11 +78,11 @@ namespace e_Shift
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 3. Update Load status to Delivered (via LoadID from JobID)
+                        // Update Load status to Delivered (via LoadID from JobID)
                         string updateLoadSql = @"
-                    UPDATE Loads
-                    SET Status = 'Delivered'
-                    WHERE JobID = @jobId";
+                            UPDATE Loads
+                            SET Status = 'Delivered'
+                            WHERE JobID = @jobId";
 
                         using (SqlCommand cmd = new SqlCommand(updateLoadSql, con, tran))
                         {
@@ -80,13 +90,12 @@ namespace e_Shift
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 4. Set availabilities (driver, assistant, container, lorry) to Available
-                        // First get the TransportUnit details related to this JobID
+                        // Set availabilities to Available
                         string getTU = @"
-                    SELECT tu.TransportUnitID, tu.LorryID, tu.DriverID, tu.AssistantID, tu.ContainerID
-                    FROM TransportUnits tu
-                    INNER JOIN Loads l ON tu.LoadID = l.LoadID
-                    WHERE l.JobID = @jobId";
+                            SELECT tu.TransportUnitID, tu.LorryID, tu.DriverID, tu.AssistantID, tu.ContainerID
+                            FROM TransportUnits tu
+                            INNER JOIN Loads l ON tu.LoadID = l.LoadID
+                            WHERE l.JobID = @jobId";
 
                         int lorryId = 0, driverId = 0, assistantId = 0, containerId = 0;
 
@@ -110,12 +119,12 @@ namespace e_Shift
                             }
                         }
 
-                        // Now update availability for each to 'Available'
+                        // update availability for each to 'Available'
                         string updateAvailSql = @"
-                    UPDATE Lorries SET Availability = 'Available' WHERE LorryID = @lorryId;
-                    UPDATE Drivers SET Availability = 'Available' WHERE DriverID = @driverId;
-                    UPDATE Assistants SET Availability = 'Available' WHERE AssistantID = @assistantId;
-                    UPDATE Containers SET Availability = 'Available' WHERE ContainerID = @containerId;";
+                            UPDATE Lorries SET Availability = 'Available' WHERE LorryID = @lorryId;
+                            UPDATE Drivers SET Availability = 'Available' WHERE DriverID = @driverId;
+                            UPDATE Assistants SET Availability = 'Available' WHERE AssistantID = @assistantId;
+                            UPDATE Containers SET Availability = 'Available' WHERE ContainerID = @containerId;";
 
                         using (SqlCommand cmd = new SqlCommand(updateAvailSql, con, tran))
                         {
@@ -128,13 +137,23 @@ namespace e_Shift
 
                         tran.Commit();
 
-                        MessageBox.Show("Job completed successfully!");
+                        MessageBox.Show(
+                            "Job completed successfully!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                           );
                         this.Close();
                     }
                     catch (Exception ex)
                     {
                         tran.Rollback();
-                        MessageBox.Show("Error completing job: " + ex.Message);
+                        MessageBox.Show(
+                            "Error completing job: " + ex.Message,
+                            "Job Completion Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                           );
                     }
                 }
             }
@@ -148,14 +167,14 @@ namespace e_Shift
 
                 // Get job details + related lorry ID and unit price
                 string sql = @"
-    SELECT j.JobID, j.RequestedStartLocation, j.RequestedDestination, j.Status,
-           tu.LorryID, lt.UnitPrice
-    FROM Jobs j
-    INNER JOIN Loads l ON j.JobID = l.JobID
-    INNER JOIN TransportUnits tu ON l.LoadID = tu.LoadID
-    INNER JOIN Lorries lo ON tu.LorryID = lo.LorryID
-    INNER JOIN LorryTypes lt ON lo.TypeID = lt.TypeID
-    WHERE j.JobID = @jobId";
+                    SELECT j.JobID, j.RequestedStartLocation, j.RequestedDestination, j.Status,
+                        tu.LorryID, lt.UnitPrice
+                    FROM Jobs j
+                    INNER JOIN Loads l ON j.JobID = l.JobID
+                    INNER JOIN TransportUnits tu ON l.LoadID = tu.LoadID
+                    INNER JOIN Lorries lo ON tu.LorryID = lo.LorryID
+                    INNER JOIN LorryTypes lt ON lo.TypeID = lt.TypeID
+                    WHERE j.JobID = @jobId";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
@@ -169,7 +188,9 @@ namespace e_Shift
 
                             if (status != "In Transit")
                             {
-                                MessageBox.Show("Selected job is not in 'In Transit' status. Cannot complete.");
+                                MessageBox.Show("Selected job is not in 'In Transit' status. Cannot complete.", 
+                                    "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                                 this.Close();
                                 return;
                             }
@@ -183,7 +204,8 @@ namespace e_Shift
                         }
                         else
                         {
-                            MessageBox.Show("Job details not found.");
+                            MessageBox.Show("Job details not found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             this.Close();
                         }
                     }

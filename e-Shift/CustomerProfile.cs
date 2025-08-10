@@ -40,13 +40,9 @@ namespace e_Shift
                 _customer.City = txtCity.Text;
                 _customer.Age = int.Parse(txtAge.Text);
 
-                _customer.SaveCustomer(_customer); // Save the customer to the database
-                MessageBox.Show("Profile saved successfully!");
+                _customer.SaveCustomer(_customer);
+                MessageBox.Show("Profile saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //redirect to dashboard here
-                //CustomerDashboard dashboard = new CustomerDashboard(_userId, cust.FullName);
-                //dashboard.Show();
-                //this.Close();
             }
         }
 
@@ -54,34 +50,35 @@ namespace e_Shift
         {
             if (txtFullName.Text == "")
             {
-                MessageBox.Show("Enter Customer Name");
+                MessageBox.Show("Enter Customer Name", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return false;
             }
 
             if (txtNic.Text == "")
             {
-                MessageBox.Show("Enter Customer NIC");
+                MessageBox.Show("Enter Customer NIC", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return false;
             }
 
             if (txtMobile.Text == "")
             {
-                MessageBox.Show("Enter Mobile Number");
+                MessageBox.Show("Enter Mobile Number", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return false;
             }
 
             return true;
         }
 
-        //load customer details in their profile form
         private void LoadCustomerData()
         {
-            // Create a Customer object and load data
+       
             _customer = new Customer();
             _customer.UserID = _userId;
             _customer.LoadCustomerDetails();
 
-            // Fill textboxes with loaded data
             txtFullName.Text = _customer.FullName;
             txtNic.Text = _customer.NIC;
             txtEmail.Text = _customer.Email;

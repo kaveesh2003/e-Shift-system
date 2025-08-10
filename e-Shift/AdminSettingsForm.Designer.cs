@@ -79,6 +79,7 @@
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Size = new System.Drawing.Size(291, 22);
             this.txtOldPassword.TabIndex = 4;
+            this.txtOldPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -97,6 +98,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(291, 22);
             this.txtNewPassword.TabIndex = 6;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -115,6 +117,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(291, 22);
             this.txtConfirmPassword.TabIndex = 8;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -183,6 +186,7 @@
             this.Name = "AdminSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminSettingsForm";
+            this.Load += new System.EventHandler(this.AdminSettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -210,6 +210,7 @@
             // 
             // txtUserId
             // 
+            this.txtUserId.Enabled = false;
             this.txtUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserId.Location = new System.Drawing.Point(259, 271);
             this.txtUserId.Name = "txtUserId";

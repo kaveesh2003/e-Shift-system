@@ -84,6 +84,7 @@ namespace e_Shift
                 {
                     // Call the common delete method
                     Data.DeleteById("Customers", "UserID", userId);
+                    Data.DeleteById("Users", "UserID", userId);
 
                     MessageBox.Show("Customer deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

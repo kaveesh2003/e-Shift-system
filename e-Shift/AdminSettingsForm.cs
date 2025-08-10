@@ -41,7 +41,7 @@ namespace e_Shift
                 return;
             }
 
-            // Step 1: Verify old password
+            // Verify old password
             string sqlVerify = "SELECT COUNT(*) FROM Users WHERE UserID=@id AND Password=@oldPass";
             SqlParameter[] verifyParams =
             {
@@ -56,7 +56,7 @@ namespace e_Shift
                 return;
             }
 
-            // Step 2: Build update query
+            // Build update query
             string sqlUpdate;
             SqlParameter[] updateParams;
             if (string.IsNullOrEmpty(txtNewPassword.Text))
@@ -79,7 +79,7 @@ namespace e_Shift
                 };
             }
 
-            // Step 3: Execute update
+            // Execute update
             Data.ExecuteQuery(sqlUpdate, updateParams);
             MessageBox.Show("Admin details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -92,6 +92,11 @@ namespace e_Shift
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AdminSettingsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

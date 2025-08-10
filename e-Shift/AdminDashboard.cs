@@ -67,57 +67,57 @@ namespace e_Shift
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             ManageCustomer customerForm = new ManageCustomer();
-            customerForm.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            customerForm.FormClosed += (s, args) => this.Show(); 
             customerForm.Show();
         }
 
         private void btnJobs_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             JobsForm jobsform = new JobsForm();
-            jobsform.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            jobsform.FormClosed += (s, args) => this.Show(); 
             jobsform.Show();
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             ManageProducts manageProducts = new ManageProducts();
-            manageProducts.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            manageProducts.FormClosed += (s, args) => this.Show(); 
             manageProducts.Show();
         }
 
         private void btnTransportUnit_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             TransportUnit transportUnit = new TransportUnit();
-            transportUnit.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            transportUnit.FormClosed += (s, args) => this.Show(); 
             transportUnit.Show();
         }
 
         private void btnLoads_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             LoadsForm loadsForm = new LoadsForm();
-            loadsForm.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            loadsForm.FormClosed += (s, args) => this.Show(); 
             loadsForm.Show();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             FormReports reportsForm = new FormReports();
-            reportsForm.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            reportsForm.FormClosed += (s, args) => this.Show(); 
             reportsForm.Show();
         }
 
         private void btnAdminSettings_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             AdminSettingsForm adminSettings = new AdminSettingsForm(_adminUser);
-            adminSettings.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            adminSettings.FormClosed += (s, args) => this.Show(); 
             adminSettings.Show();
         }
 

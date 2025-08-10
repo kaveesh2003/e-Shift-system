@@ -134,10 +134,9 @@ namespace e_Shift
 
         private void SetupRecentActivityListView()
         {
-            // Set view mode to List for simple single-column display
             lstRecentActivity.View = View.List;
-            lstRecentActivity.Columns.Clear();  // no columns needed for List view
-            lstRecentActivity.HeaderStyle = ColumnHeaderStyle.None; // no header shown
+            lstRecentActivity.Columns.Clear(); 
+            lstRecentActivity.HeaderStyle = ColumnHeaderStyle.None; 
         }
 
         private void LoadRecentActivity(int customerId)

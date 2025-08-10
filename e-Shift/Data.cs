@@ -159,7 +159,6 @@ namespace e_Shift
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                // Build dynamic WHERE clause: (col1 LIKE @search OR col2 LIKE @search ...)
                 string whereClause = string.Join(" OR ", columnNames.Select(col => $"{col} LIKE @search"));
 
                 string sql = $"SELECT * FROM {tableName} WHERE {whereClause}";
@@ -196,7 +195,6 @@ namespace e_Shift
 
                 foreach (var pair in mapping)
                 {
-                    // Defensive check: if the column name exists
                     if (row.Cells.Contains(row.Cells[pair.Value]))
                     {
                         pair.Key.Text = row.Cells[pair.Value]?.Value?.ToString();
@@ -205,7 +203,7 @@ namespace e_Shift
             }
         }
 
-        //update/edit method
+        //edit method
         public static void UpdateRecord(string tableName, string keyColumn, object keyValue, Dictionary<string, object> data)
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -250,10 +248,10 @@ namespace e_Shift
             using (SqlConnection con = new SqlConnection(cs))
             {
                 string sql = @"
-                SELECT l.LorryID, l.PlateNumber, l.Availability, t.TypeName, t.UnitPrice
-                FROM Lorries l
-                INNER JOIN LorryTypes t ON l.TypeID = t.TypeID
-                WHERE l.PlateNumber LIKE @search
+                    SELECT l.LorryID, l.PlateNumber, l.Availability, t.TypeName, t.UnitPrice
+                    FROM Lorries l
+                    INNER JOIN LorryTypes t ON l.TypeID = t.TypeID
+                    WHERE l.PlateNumber LIKE @search
                     OR l.Availability LIKE @search
                     OR t.TypeName LIKE @search";
 
@@ -286,7 +284,7 @@ namespace e_Shift
                         }
                         catch (Exception ex)
                         {
-                            // Optional: Log error or show message
+                            //Log error or show message
                             throw new Exception("Database error: " + ex.Message);
                         }
                         return dt;
