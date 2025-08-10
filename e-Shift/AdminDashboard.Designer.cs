@@ -73,6 +73,7 @@
             this.btnAdminSettings.TabIndex = 7;
             this.btnAdminSettings.Text = "Admin Settings";
             this.btnAdminSettings.UseVisualStyleBackColor = true;
+            this.btnAdminSettings.Click += new System.EventHandler(this.btnAdminSettings_Click);
             // 
             // btnReports
             // 

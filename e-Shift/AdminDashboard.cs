@@ -106,5 +106,13 @@ namespace e_Shift
             reportsForm.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
             reportsForm.Show();
         }
+
+        private void btnAdminSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide Admin Dashboard
+            AdminSettingsForm adminSettings = new AdminSettingsForm(_adminUser);
+            adminSettings.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
+            adminSettings.Show();
+        }
     }
 }
