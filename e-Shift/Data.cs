@@ -333,6 +333,20 @@ namespace e_Shift
             }
         }
 
+        public static int GetTotalCountWhere(string tableName, string whereClause)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                string sql = $"SELECT COUNT(*) FROM {tableName} WHERE {whereClause}";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    con.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+
 
     }
 }

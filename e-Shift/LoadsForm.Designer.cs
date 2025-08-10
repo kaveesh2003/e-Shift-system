@@ -160,13 +160,15 @@
             // 
             // btnAddToLoad
             // 
+            this.btnAddToLoad.BackColor = System.Drawing.Color.DarkRed;
             this.btnAddToLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToLoad.Location = new System.Drawing.Point(840, 224);
+            this.btnAddToLoad.ForeColor = System.Drawing.Color.White;
+            this.btnAddToLoad.Location = new System.Drawing.Point(717, 218);
             this.btnAddToLoad.Name = "btnAddToLoad";
-            this.btnAddToLoad.Size = new System.Drawing.Size(191, 24);
+            this.btnAddToLoad.Size = new System.Drawing.Size(191, 37);
             this.btnAddToLoad.TabIndex = 13;
             this.btnAddToLoad.Text = "Add product to Load";
-            this.btnAddToLoad.UseVisualStyleBackColor = true;
+            this.btnAddToLoad.UseVisualStyleBackColor = false;
             this.btnAddToLoad.Click += new System.EventHandler(this.btnAddToLoad_Click);
             // 
             // txtTotalWeight

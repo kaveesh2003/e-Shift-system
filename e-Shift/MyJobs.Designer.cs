@@ -71,31 +71,35 @@
             // dtpFilterDate
             // 
             this.dtpFilterDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFilterDate.Location = new System.Drawing.Point(551, 103);
+            this.dtpFilterDate.Location = new System.Drawing.Point(530, 103);
             this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(251, 22);
+            this.dtpFilterDate.Size = new System.Drawing.Size(272, 22);
             this.dtpFilterDate.TabIndex = 4;
             // 
             // btnFilter
             // 
+            this.btnFilter.BackColor = System.Drawing.Color.DarkRed;
             this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.Location = new System.Drawing.Point(823, 102);
+            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.Location = new System.Drawing.Point(821, 96);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.Size = new System.Drawing.Size(75, 34);
             this.btnFilter.TabIndex = 5;
             this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnClearFilter
             // 
+            this.btnClearFilter.BackColor = System.Drawing.Color.DarkRed;
             this.btnClearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearFilter.Location = new System.Drawing.Point(922, 102);
+            this.btnClearFilter.ForeColor = System.Drawing.Color.White;
+            this.btnClearFilter.Location = new System.Drawing.Point(920, 96);
             this.btnClearFilter.Name = "btnClearFilter";
-            this.btnClearFilter.Size = new System.Drawing.Size(107, 23);
+            this.btnClearFilter.Size = new System.Drawing.Size(107, 34);
             this.btnClearFilter.TabIndex = 6;
             this.btnClearFilter.Text = "Clear Filter";
-            this.btnClearFilter.UseVisualStyleBackColor = true;
+            this.btnClearFilter.UseVisualStyleBackColor = false;
             this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
             // 
             // dgvJobs

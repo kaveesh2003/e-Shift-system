@@ -85,19 +85,21 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.Color.DarkRed;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(956, 100);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(937, 91);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(93, 31);
             this.btnSearch.TabIndex = 40;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(754, 100);
+            this.txtSearch.Location = new System.Drawing.Point(722, 100);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(196, 22);
             this.txtSearch.TabIndex = 39;
@@ -109,7 +111,7 @@
             this.btnAcceptJob.ForeColor = System.Drawing.Color.White;
             this.btnAcceptJob.Location = new System.Drawing.Point(245, 578);
             this.btnAcceptJob.Name = "btnAcceptJob";
-            this.btnAcceptJob.Size = new System.Drawing.Size(103, 33);
+            this.btnAcceptJob.Size = new System.Drawing.Size(141, 33);
             this.btnAcceptJob.TabIndex = 41;
             this.btnAcceptJob.Text = "Accept Job";
             this.btnAcceptJob.UseVisualStyleBackColor = false;
@@ -120,9 +122,9 @@
             this.btnDecline.BackColor = System.Drawing.Color.DarkRed;
             this.btnDecline.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDecline.ForeColor = System.Drawing.Color.White;
-            this.btnDecline.Location = new System.Drawing.Point(438, 578);
+            this.btnDecline.Location = new System.Drawing.Point(422, 578);
             this.btnDecline.Name = "btnDecline";
-            this.btnDecline.Size = new System.Drawing.Size(103, 33);
+            this.btnDecline.Size = new System.Drawing.Size(133, 33);
             this.btnDecline.TabIndex = 42;
             this.btnDecline.Text = "Decline Job";
             this.btnDecline.UseVisualStyleBackColor = false;
@@ -133,9 +135,9 @@
             this.btnAssignTU.BackColor = System.Drawing.Color.DarkRed;
             this.btnAssignTU.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignTU.ForeColor = System.Drawing.Color.White;
-            this.btnAssignTU.Location = new System.Drawing.Point(853, 577);
+            this.btnAssignTU.Location = new System.Drawing.Point(804, 578);
             this.btnAssignTU.Name = "btnAssignTU";
-            this.btnAssignTU.Size = new System.Drawing.Size(177, 33);
+            this.btnAssignTU.Size = new System.Drawing.Size(226, 33);
             this.btnAssignTU.TabIndex = 43;
             this.btnAssignTU.Text = "Assign Transport Unit";
             this.btnAssignTU.UseVisualStyleBackColor = false;
@@ -145,9 +147,9 @@
             this.btnComplete.BackColor = System.Drawing.Color.DarkRed;
             this.btnComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComplete.ForeColor = System.Drawing.Color.White;
-            this.btnComplete.Location = new System.Drawing.Point(624, 578);
+            this.btnComplete.Location = new System.Drawing.Point(589, 578);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(139, 33);
+            this.btnComplete.Size = new System.Drawing.Size(161, 33);
             this.btnComplete.TabIndex = 44;
             this.btnComplete.Text = "Complete Job";
             this.btnComplete.UseVisualStyleBackColor = false;

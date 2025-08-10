@@ -207,6 +207,7 @@
             this.lblTotalCustomers.Size = new System.Drawing.Size(120, 16);
             this.lblTotalCustomers.TabIndex = 4;
             this.lblTotalCustomers.Text = "Total Customers";
+            this.lblTotalCustomers.Click += new System.EventHandler(this.lblTotalCustomers_Click);
             // 
             // lblTotalJobs
             // 

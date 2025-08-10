@@ -38,6 +38,12 @@ namespace e_Shift
             lblTotalCustomers.Text = "Total Customers: " + totalCustomers;
             lblTotalJobs.Text = "Total Jobs: " + totalJobs;
 
+            int totalCompletedJobs = Data.GetTotalCountWhere("Jobs", "Status = 'Completed'");
+            lblCompletedJobs.Text = "Completed Jobs: " + totalCompletedJobs;
+
+            int totalLoads = Data.GetTotalCount("Loads");
+            lblTotalLoads.Text = "Total Loads: " + totalLoads;
+
             //display data in grid view
             Data.LoadTableToGrid("Jobs", dgvJobRequests);
         }
@@ -113,6 +119,11 @@ namespace e_Shift
             AdminSettingsForm adminSettings = new AdminSettingsForm(_adminUser);
             adminSettings.FormClosed += (s, args) => this.Show(); // Show dashboard again after closing
             adminSettings.Show();
+        }
+
+        private void lblTotalCustomers_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
