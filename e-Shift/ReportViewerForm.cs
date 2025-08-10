@@ -29,8 +29,6 @@ namespace e_Shift
             // Set parameter fields BEFORE setting ReportSource
             crystalReportViewer1.ParameterFieldInfo = parameters;
 
-
-            // Optional: if report needs DB login at runtime, set connection info here (see note)
             crystalReportViewer1.ReportSource = reportDoc;
             crystalReportViewer1.Refresh();
         }

@@ -66,7 +66,8 @@ namespace e_Shift
 
             LoadCustomerData();
 
-            MessageBox.Show("Customer details updated successfully.");
+            MessageBox.Show("Customer details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
         }
 

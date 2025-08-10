@@ -59,7 +59,7 @@ namespace e_Shift
                     }
                 }
 
-                this.Hide(); // Hide login form
+                this.Hide();
             }
             else
             {

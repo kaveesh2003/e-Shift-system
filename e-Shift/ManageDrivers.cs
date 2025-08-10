@@ -45,7 +45,8 @@ namespace e_Shift
             };
 
             Data.ExecuteNonQuery(sql, parameters);
-            MessageBox.Show("Driver registered successfully!");
+            MessageBox.Show("Driver registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             ClearTextFields();
             LoadDriverData();
@@ -83,7 +84,8 @@ namespace e_Shift
             };
 
             Data.UpdateRecord("Drivers", "DriverID", driverId, updatedData);
-            MessageBox.Show("Driver details updated successfully!");
+            MessageBox.Show("Driver details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             ClearTextFields();
             LoadDriverData();
@@ -99,7 +101,8 @@ namespace e_Shift
             if (result == DialogResult.Yes)
             {
                 Data.DeleteById("Drivers", "DriverID", driverId);
-                MessageBox.Show("Driver deleted successfully!");
+                MessageBox.Show("Driver deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 LoadDriverData();
                 ClearTextFields(); 

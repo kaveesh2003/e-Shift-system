@@ -24,7 +24,8 @@ namespace e_Shift
             string selected = cmbReportType.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selected))
             {
-                MessageBox.Show("Select a report");
+                MessageBox.Show("Select a report", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -97,11 +98,10 @@ namespace e_Shift
 
                 // Create the AvailabilityStatus parameter
                 ParameterField availabilityParam = new ParameterField();
-                availabilityParam.Name = "AvailabilityStatus";  // Must match your Crystal parameter name
+                availabilityParam.Name = "AvailabilityStatus"; 
 
                 ParameterDiscreteValue availabilityValue = new ParameterDiscreteValue();
 
-                // Get selected availability status from UI or default to "All"
                 string availabilityStatus = cmbAvailabilityStatus.SelectedItem?.ToString() ?? "All";
 
                 availabilityValue.Value = availabilityStatus;
@@ -111,7 +111,8 @@ namespace e_Shift
             }
             else
             {
-                MessageBox.Show("Selected report is not implemented yet.");
+                MessageBox.Show("Selected report is not implemented yet.", "Feature Pending", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 return;
             }
 
@@ -138,7 +139,6 @@ namespace e_Shift
             cmbReportType.Items.Add("Load Report");
             cmbReportType.Items.Add("Transport Units Report");
 
-            // Optionally select the first item by default
             if (cmbReportType.Items.Count > 0)
             {
                 cmbReportType.SelectedIndex = 0;

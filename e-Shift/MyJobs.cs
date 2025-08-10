@@ -65,38 +65,33 @@ namespace e_Shift
                         bool success = _jobHandler.CancelJob(jobID);
                         if (success)
                         {
-                            MessageBox.Show("Job cancelled successfully.");
+                            MessageBox.Show("Job cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             LoadJobs();
                         }
                         else
                         {
-                            MessageBox.Show("Failed to cancel job.");
+                            MessageBox.Show("Failed to cancel job.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Only pending jobs can be cancelled.");
+                    MessageBox.Show("Only pending jobs can be cancelled.", "Invalid Operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
             else
             {
-                MessageBox.Show("Please select a job.");
+                MessageBox.Show("Please select a job.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-            if (dgvJobs.SelectedRows.Count > 0)
-            {
-                int jobID = Convert.ToInt32(dgvJobs.SelectedRows[0].Cells["JobID"].Value);
-                // You can open a new form to show details here if needed
-                MessageBox.Show("Selected Job ID: " + jobID, "Details");
-            }
-            else
-            {
-                MessageBox.Show("Please select a job.");
-            }
+            
         }
     }
 }

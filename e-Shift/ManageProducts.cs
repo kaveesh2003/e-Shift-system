@@ -171,7 +171,7 @@ namespace e_Shift
             // Define the columns to search
             string[] columnsToSearch = { "ProductName", "WeightClass", "ProductType" };
 
-            // Call your Data class method
+            // Call Data class method
             DataTable result = Data.SearchMultipleColumns("Products", columnsToSearch, searchText);
 
             // Bind results to DataGridView

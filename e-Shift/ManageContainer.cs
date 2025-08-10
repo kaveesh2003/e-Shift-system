@@ -48,13 +48,15 @@ namespace e_Shift
             try
             {
                 Data.ExecuteNonQuery(sql, parameters);
-                MessageBox.Show("Container saved successfully!");
+                MessageBox.Show("Container saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadContainers();
                 ClearFields();
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -81,7 +83,7 @@ namespace e_Shift
                 try
                 {
                     Data.UpdateRecord("Containers", "ContainerID", id, data);
-                    MessageBox.Show("Container updated successfully!");
+                    MessageBox.Show("Container updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadContainers();
                 }
                 catch (SqlException ex)
@@ -91,7 +93,8 @@ namespace e_Shift
             }
             else
             {
-                MessageBox.Show("Please select a valid container to update.");
+                MessageBox.Show("Please select a valid container to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -103,13 +106,15 @@ namespace e_Shift
                 if (confirm == DialogResult.Yes)
                 {
                     Data.DeleteById("Containers", "ContainerID", id);
-                    MessageBox.Show("Container deleted.");
+                    MessageBox.Show("Container deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     LoadContainers();
                 }
             }
             else
             {
-                MessageBox.Show("Please select a valid container to delete.");
+                MessageBox.Show("Please select a valid container to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 

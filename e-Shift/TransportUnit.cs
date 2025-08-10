@@ -22,7 +22,7 @@ namespace e_Shift
 
         private void btnMngDriver_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             ManageDrivers manageDrivers = new ManageDrivers();
             manageDrivers.FormClosed += (s, args) => this.Show(); 
             manageDrivers.Show();
@@ -30,7 +30,7 @@ namespace e_Shift
 
         private void btnMngAssistant_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             ManageAssistant manageAssistant = new ManageAssistant();
             manageAssistant.FormClosed += (s, args) => this.Show(); 
             manageAssistant.Show();
@@ -38,7 +38,7 @@ namespace e_Shift
 
         private void btnmngLorries_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide(); 
             ManageLorries manageLorries = new ManageLorries();
             manageLorries.FormClosed += (s, args) => this.Show();
             manageLorries.Show();
@@ -46,7 +46,7 @@ namespace e_Shift
 
         private void btnMngContainers_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide Admin Dashboard
+            this.Hide();
             ManageContainer manageContainer = new ManageContainer();
             manageContainer.FormClosed += (s, args) => this.Show();
             manageContainer.Show();
@@ -54,35 +54,35 @@ namespace e_Shift
 
         private void TransportUnit_Load(object sender, EventArgs e)
         {
-            // Load Load IDs (status = 'Pending')
+            
             string loadQuery = @"
                 SELECT LoadID, LoadID AS DisplayLoadID
                 FROM Loads
                 WHERE Status = 'Pending'";
             Data.FillComboBox(loadQuery, cmbLoadID, "DisplayLoadID", "LoadID");
 
-            // Load Lorry numbers (status = 'Available')
+            
             string lorryQuery = @"
                 SELECT LorryID, PlateNumber
                 FROM Lorries
                 WHERE Availability = 'Available'";
             Data.FillComboBox(lorryQuery, cmbLorryNo, "PlateNumber", "LorryID");
 
-            // Load Drivers (status = 'Available')
+            
             string driverQuery = @"
                 SELECT DriverID, FullName
                 FROM Drivers
                 WHERE Availability = 'Available'";
             Data.FillComboBox(driverQuery, cmbDriver, "FullName", "DriverID");
 
-            // Load Assistants (status = 'Available')
+            
             string assistantQuery = @"
                 SELECT AssistantID, FullName
                 FROM Assistants
                 WHERE Availability = 'Available'";
             Data.FillComboBox(assistantQuery, cmbAssistant, "FullName", "AssistantID");
 
-            // Load Containers (status = 'Available')
+            
             string containerQuery = @"
                 SELECT ContainerID, ContainerCode
                 FROM Containers
@@ -156,10 +156,10 @@ namespace e_Shift
 
                 // Get JobID & RequestedDate
                 using (SqlCommand cmd = new SqlCommand(@"
-            SELECT l.JobID, j.RequestedDate
-            FROM Loads l
-            INNER JOIN Jobs j ON l.JobID = j.JobID
-            WHERE l.LoadID = @loadId", con))
+                    SELECT l.JobID, j.RequestedDate
+                    FROM Loads l
+                    INNER JOIN Jobs j ON l.JobID = j.JobID
+                    WHERE l.LoadID = @loadId", con))
                 {
                     cmd.Parameters.AddWithValue("@loadId", loadId);
 
@@ -197,9 +197,9 @@ namespace e_Shift
                     {
                         // Insert into TransportUnits
                         using (SqlCommand cmd = new SqlCommand(@"
-                    INSERT INTO TransportUnits
-                    (LoadID, JobID, LorryID, DriverID, AssistantID, ContainerID, PickUpDateTime, DeliveryDateTime)
-                    VALUES (@loadId, @jobId, @lorryId, @driverId, @assistantId, @containerId, @pickupDate, @deliveryDate)", con, tran))
+                        INSERT INTO TransportUnits
+                        (LoadID, JobID, LorryID, DriverID, AssistantID, ContainerID, PickUpDateTime, DeliveryDateTime)
+                        VALUES (@loadId, @jobId, @lorryId, @driverId, @assistantId, @containerId, @pickupDate, @deliveryDate)", con, tran))
                         {
                             cmd.Parameters.AddWithValue("@loadId", loadId);
                             cmd.Parameters.AddWithValue("@jobId", jobId);
@@ -214,12 +214,12 @@ namespace e_Shift
 
                         // Update statuses
                         string updateSql = @"
-                    UPDATE Loads SET Status = 'In Transit' WHERE LoadID = @loadId;
-                    UPDATE Lorries SET Availability = 'On Job' WHERE LorryID = @lorryId;
-                    UPDATE Drivers SET Availability = 'On Job' WHERE DriverID = @driverId;
-                    UPDATE Assistants SET Availability = 'On Job' WHERE AssistantID = @assistantId;
-                    UPDATE Containers SET Availability = 'On Job' WHERE ContainerID = @containerId;
-                    UPDATE Jobs SET Status = 'In Transit' WHERE JobID = @jobId;";
+                            UPDATE Loads SET Status = 'In Transit' WHERE LoadID = @loadId;
+                            UPDATE Lorries SET Availability = 'On Job' WHERE LorryID = @lorryId;
+                            UPDATE Drivers SET Availability = 'On Job' WHERE DriverID = @driverId;
+                            UPDATE Assistants SET Availability = 'On Job' WHERE AssistantID = @assistantId;
+                            UPDATE Containers SET Availability = 'On Job' WHERE ContainerID = @containerId;
+                            UPDATE Jobs SET Status = 'In Transit' WHERE JobID = @jobId;";
 
                         using (SqlCommand cmd = new SqlCommand(updateSql, con, tran))
                         {
@@ -235,7 +235,8 @@ namespace e_Shift
                         // Commit transaction
                         tran.Commit();
 
-                        MessageBox.Show("Transport Unit assigned and statuses updated successfully!");
+                        MessageBox.Show("Transport Unit assigned and statuses updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                         // Refresh grid
                         LoadTransportUnitsToGrid();
@@ -268,22 +269,18 @@ namespace e_Shift
             tu.TransportUnitID,
             l.LoadID,
             lo.LorryID,
-            
             d.DriverID,
-            
             a.AssistantID,
-            
             c.ContainerID,
-            
             tu.PickUpDateTime,
             tu.DeliveryDateTime
-        FROM TransportUnits tu
-        INNER JOIN Loads l ON tu.LoadID = l.LoadID
-        INNER JOIN Lorries lo ON tu.LorryID = lo.LorryID
-        INNER JOIN Drivers d ON tu.DriverID = d.DriverID
-        INNER JOIN Assistants a ON tu.AssistantID = a.AssistantID
-        INNER JOIN Containers c ON tu.ContainerID = c.ContainerID
-    ";
+            FROM TransportUnits tu
+            INNER JOIN Loads l ON tu.LoadID = l.LoadID
+            INNER JOIN Lorries lo ON tu.LorryID = lo.LorryID
+            INNER JOIN Drivers d ON tu.DriverID = d.DriverID
+            INNER JOIN Assistants a ON tu.AssistantID = a.AssistantID
+            INNER JOIN Containers c ON tu.ContainerID = c.ContainerID
+        ";
 
             Data.LoadDataToGridView(query, dgvTransportUnit);
         }
@@ -337,9 +334,8 @@ namespace e_Shift
             if (confirm == DialogResult.Yes)
             {
                 Data.DeleteById("TransportUnits", "TransportUnitID", currentTransportUnitId);
-                MessageBox.Show("Transport Unit deleted.");
+                MessageBox.Show("Transport Unit deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Refresh grid
                 LoadTransportUnitsToGrid();
                 ClearForm();
             }

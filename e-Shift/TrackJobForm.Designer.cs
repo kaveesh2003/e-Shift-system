@@ -122,6 +122,7 @@
             this.txtJobID.Name = "txtJobID";
             this.txtJobID.Size = new System.Drawing.Size(186, 22);
             this.txtJobID.TabIndex = 8;
+            this.txtJobID.TextChanged += new System.EventHandler(this.txtJobID_TextChanged);
             // 
             // txtPickup
             // 

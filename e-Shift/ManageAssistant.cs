@@ -33,7 +33,8 @@ namespace e_Shift
             };
 
             Data.ExecuteNonQuery(sql, parameters);
-            MessageBox.Show("Assistant registered successfully!");
+            MessageBox.Show("Assistant registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             LoadAssistants(); 
             ClearFields();
@@ -69,7 +70,8 @@ namespace e_Shift
             };
 
             Data.UpdateRecord("Assistants", "AssistantID", id, updatedData);
-            MessageBox.Show("Assistant details updated successfully!");
+            MessageBox.Show("Assistant details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             ClearFields();
             LoadAssistants();
@@ -84,7 +86,8 @@ namespace e_Shift
             if (result == DialogResult.Yes)
             {
                 Data.DeleteById("Assistants", "AssistantID", id);
-                MessageBox.Show("Assistant deleted successfully!");
+                MessageBox.Show("Assistant deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 LoadAssistants();
                 ClearFields();

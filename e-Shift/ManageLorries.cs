@@ -26,8 +26,6 @@ namespace e_Shift
             cmbAvailability.Items.AddRange(new string[] { "Available", "On Job", "Unavailable" });
 
             LoadLorries();
-
-            //Data.LoadTableToGrid("Lorries", dgvLorries);
         }
 
         private void LoadLorries()
@@ -43,7 +41,7 @@ namespace e_Shift
             DataTable dt = Data.GetData(query);
             dgvLorries.DataSource = dt;
 
-            // Optional: Adjust headers for clarity
+            // Adjust headers for clarity
             dgvLorries.Columns["LorryID"].HeaderText = "Lorry ID";
             dgvLorries.Columns["PlateNumber"].HeaderText = "Plate Number";
             dgvLorries.Columns["Availability"].HeaderText = "Status";
@@ -68,7 +66,8 @@ namespace e_Shift
             };
 
             Data.ExecuteNonQuery(sql, parameters);
-            MessageBox.Show("Lorry saved successfully!");
+            MessageBox.Show("Lorry saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             LoadLorries(); 
             ClearForm();
@@ -118,13 +117,15 @@ namespace e_Shift
                 };
 
                 Data.UpdateRecord("Lorries", "LorryID", selectedId, updateData);
-                MessageBox.Show("Lorry details updated successfully!");
+                MessageBox.Show("Lorry details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LoadLorries(); // refresh
+
+                LoadLorries();
             }
             else
             {
-                MessageBox.Show("Please select a row to update.");
+                MessageBox.Show("Please select a row to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -138,14 +139,15 @@ namespace e_Shift
                 if (confirm == DialogResult.Yes)
                 {
                     Data.DeleteById("Lorries", "LorryID", selectedId);
-                    MessageBox.Show("Lorry deleted successfully!");
+                    MessageBox.Show("Lorry deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadLorries();// Refresh grid
+                    LoadLorries();
                 }
             }
             else
             {
-                MessageBox.Show("Please select a row to delete.");
+                MessageBox.Show("Please select a row to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 

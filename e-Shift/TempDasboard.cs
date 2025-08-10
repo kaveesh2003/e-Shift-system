@@ -32,14 +32,14 @@ namespace e_Shift
                 this.Show();
 
                 // Reload updated profile info
-                _customer.LoadCustomerDetails(); //Load updated data after profile save
+                _customer.LoadCustomerDetails(); 
 
                 // Recheck profile status after closing the form
                 if (_customer.IsProfileComplete())
                 {
                     CustomerDashboard dashboard = new CustomerDashboard(_customer.UserID, _customer.Username);
                     dashboard.Show();
-                    this.Close(); // Close TempDashboard
+                    this.Close(); 
                 }
                 else
                 {

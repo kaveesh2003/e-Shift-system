@@ -18,12 +18,12 @@ namespace e_Shift
         {
             InitializeComponent();
             _currentUserID = userID;
-            dtpRequestedDate.MinDate = DateTime.Today; // Prevent past date selection
+            dtpRequestedDate.MinDate = DateTime.Today; 
         }
 
         private void btnSubmitJob_Click(object sender, EventArgs e)
         {
-            // Step 1: Validation
+            // Validation
             if (string.IsNullOrWhiteSpace(txtStartLocation.Text) ||
                 string.IsNullOrWhiteSpace(txtDestination.Text))
             {
@@ -61,12 +61,14 @@ namespace e_Shift
             // Step 3: Save job
             if (newJob.SaveJob())
             {
-                MessageBox.Show("Job request submitted successfully.");
+                MessageBox.Show("Job request submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 ClearFields();
             }
             else
             {
-                MessageBox.Show("Failed to submit job request.");
+                MessageBox.Show("Failed to submit job request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

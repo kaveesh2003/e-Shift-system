@@ -42,7 +42,8 @@ namespace e_Shift
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error while saving job: " + ex.Message);
+                MessageBox.Show("Error while saving job: " + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return false;
             }
         }

@@ -45,7 +45,8 @@ namespace e_Shift
             }
             else
             {
-                MessageBox.Show("Please select a job to accept.");
+                MessageBox.Show("Please select a job to accept.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -69,7 +70,8 @@ namespace e_Shift
             }
             else
             {
-                MessageBox.Show("Please select a job to decline.");
+                MessageBox.Show("Please select a job to decline.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -87,14 +89,15 @@ namespace e_Shift
             // Check if user entered something
             if (string.IsNullOrEmpty(searchText))
             {
-                MessageBox.Show("Please enter a search term.");
+                MessageBox.Show("Please enter a search term.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
             // Define the columns to search
             string[] columnsToSearch = { "RequestedStartLocation", "RequestedDestination", "Status" };
 
-            // Call your Data class method
+            // Call Data class method
             DataTable result = Data.SearchMultipleColumns("Jobs", columnsToSearch, searchText);
 
             // Bind results to DataGridView
@@ -105,7 +108,8 @@ namespace e_Shift
         {
             if (dgvRequestedJobs.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a job to complete.");
+                MessageBox.Show("Please select a job to complete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -114,7 +118,8 @@ namespace e_Shift
 
             if (status != "In Transit")
             {
-                MessageBox.Show("Only jobs with status 'In Transit' can be completed.");
+                MessageBox.Show("Only jobs with status 'In Transit' can be completed.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 

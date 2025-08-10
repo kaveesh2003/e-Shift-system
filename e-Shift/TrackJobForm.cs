@@ -24,7 +24,6 @@ namespace e_Shift
 
         private void TrackJobForm_Load(object sender, EventArgs e)
         {
-            // Load only the logged-in customer's jobs
             string query = $@"
                 SELECT JobID, Status, CreatedDate
                 FROM Jobs
@@ -63,7 +62,6 @@ namespace e_Shift
                 // Load products for the job
                 LoadJobProducts(jobID);
 
-                // Show tracking panel
                 pnlTrackingDetails.Visible = true;
             }
         }
@@ -133,6 +131,11 @@ namespace e_Shift
             WHERE L.JobID = {jobID}";
 
             Data.LoadDataToGrid(query, dgvProducts);
+        }
+
+        private void txtJobID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

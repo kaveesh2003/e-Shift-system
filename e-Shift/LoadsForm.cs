@@ -57,7 +57,8 @@ namespace e_Shift
                 !int.TryParse(txtQuantity.Text, out int quantity) ||
                 !decimal.TryParse(txtItemWeight.Text, out decimal weightPerUnit))
             {
-                MessageBox.Show("Please enter valid product, quantity, and item weight.");
+                MessageBox.Show("Please enter valid product, quantity, and item weight.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -67,7 +68,8 @@ namespace e_Shift
             // Prevent duplicate product addition
             if (tempLoadProducts.Any(p => p.ProductID == productId))
             {
-                MessageBox.Show("This product is already added to this load.");
+                MessageBox.Show("This product is already added to this load.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -96,13 +98,15 @@ namespace e_Shift
         {
             if (cmbJobID.SelectedItem == null || string.IsNullOrWhiteSpace(txtLoadDescription.Text))
             {
-                MessageBox.Show("Please select a Job and enter a description.");
+                MessageBox.Show("Please select a Job and enter a description.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
             if (!tempLoadProducts.Any())
             {
-                MessageBox.Show("Please add at least one product to the load.");
+                MessageBox.Show("Please add at least one product to the load.", "Action Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -151,7 +155,8 @@ namespace e_Shift
                 Data.ExecuteNonQuery(lpSql, lpParams);
             }
 
-            MessageBox.Show("Load Created Successfully!");
+            MessageBox.Show("Load Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             ClearLoadForm();
         }
 
@@ -171,7 +176,8 @@ namespace e_Shift
         {
             if (dgvLoadProducts.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a load to delete.");
+                MessageBox.Show("Please select a load to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -187,7 +193,8 @@ namespace e_Shift
             // Then delete the Load itself
             Data.DeleteById("Loads", "LoadID", loadId);
 
-            MessageBox.Show("Load deleted successfully!");
+            MessageBox.Show("Load deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             LoadLoadsToGrid();
             ClearLoadForm();
@@ -215,7 +222,7 @@ namespace e_Shift
                 cmbLoadStatus.Text = row.Cells["Status"].Value.ToString();
                 txtTotalWeight.Text = row.Cells["TotalWeight"].Value.ToString();
 
-                // Optionally, fetch and load associated products
+                // fetch and load associated products
                 int loadId = Convert.ToInt32(row.Cells["LoadID"].Value);
                 LoadProductsForLoad(loadId);
             }
