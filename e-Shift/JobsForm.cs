@@ -128,5 +128,13 @@ namespace e_Shift
 
             LoadJobData();
         }
+
+        private void btnAssignTU_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TransportUnit transportUnit = new TransportUnit();
+            transportUnit.FormClosed += (s, args) => this.Show();
+            transportUnit.Show();
+        }
     }
 }

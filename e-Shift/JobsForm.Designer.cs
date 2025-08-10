@@ -141,6 +141,7 @@
             this.btnAssignTU.TabIndex = 43;
             this.btnAssignTU.Text = "Assign Transport Unit";
             this.btnAssignTU.UseVisualStyleBackColor = false;
+            this.btnAssignTU.Click += new System.EventHandler(this.btnAssignTU_Click);
             // 
             // btnComplete
             // 
